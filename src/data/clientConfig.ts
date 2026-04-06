@@ -6,27 +6,27 @@
 import type { ClientConfig, IntakeStep } from '@/types'
 
 export const CLIENT: ClientConfig = {
-  businessName: 'Carter Roofing',
-  ownerName: 'Tom',
+  businessName: "Hall's Roofing",
+  ownerName: 'Mike',
   trade: 'Roofing',
   area: 'Exeter',
   region: 'East Devon',
-  phone: '01392 300 456',
+  phone: '07455 700757',
   tagline: 'Trusted roofers across Exeter and East Devon',
-  domain: 'roofingexeter.co.uk',
+  domain: 'hallsroofingexeter.co.uk',
   discountActive: true,
   discountPercent: 10,
-  googleReviewUrl: 'https://g.page/r/carter-roofing-exeter/review',
-  googleReviewCount: 47,
-  googleReviewRating: 4.9,
-  yearEstablished: 2006,
+  googleReviewUrl: 'https://g.page/r/halls-roofing-exeter/review',
+  googleReviewCount: 52,
+  googleReviewRating: 4.8,
+  yearEstablished: 2009,
   insuranceAmount: '5 million',
 
   trustSignals: [
     {
       icon: 'shield-check',
       title: 'Fully Insured',
-      description: '\u00A35m public liability insurance on every job',
+      description: '£5m public liability insurance on every job',
     },
     {
       icon: 'clock',
@@ -36,7 +36,7 @@ export const CLIENT: ClientConfig = {
     {
       icon: 'map-pin',
       title: 'Local to Exeter',
-      description: 'Serving the area for over 20 years',
+      description: 'Serving the area for over 15 years',
     },
     {
       icon: 'badge-check',
@@ -101,7 +101,7 @@ export const CLIENT: ClientConfig = {
       slug: 'chimney-work',
       name: 'Chimney Work',
       shortDescription: 'Repointing, reflashing, cowl fitting, and chimney stack repairs.',
-      longDescription: 'Chimneys take the worst of the weather and are one of the most common sources of leaks. We carry out full chimney repointing, lead flashing replacement, cowl and cap fitting, and chimney stack rebuilds where necessary. All chimney work includes scaffolding in the price \u2014 no hidden costs.',
+      longDescription: 'Chimneys take the worst of the weather and are one of the most common sources of leaks. We carry out full chimney repointing, lead flashing replacement, cowl and cap fitting, and chimney stack rebuilds where necessary. All chimney work includes scaffolding in the price — no hidden costs.',
       priceFrom: 300,
       priceTo: 800,
       icon: 'flame',
@@ -134,7 +134,7 @@ export const CLIENT: ClientConfig = {
   ],
 
   areasServed: [
-    { name: 'Exeter', slug: 'exeter', description: 'Our home base \u2014 fast response times across the whole city.', distanceFromBase: '0 miles' },
+    { name: 'Exeter', slug: 'exeter', description: 'Our home base — fast response times across the whole city.', distanceFromBase: '0 miles' },
     { name: 'Topsham', slug: 'topsham', description: 'Serving Topsham including the historic quayside properties.', distanceFromBase: '3 miles' },
     { name: 'Exmouth', slug: 'exmouth', description: 'Regular work across Exmouth including coastal properties.', distanceFromBase: '10 miles' },
     { name: 'Crediton', slug: 'crediton', description: 'Covering Crediton and the surrounding villages.', distanceFromBase: '8 miles' },
@@ -151,7 +151,7 @@ export const CLIENT: ClientConfig = {
   faqs: [
     {
       question: 'How much does a new roof cost in Exeter?',
-      answer: 'A full reroof on a typical semi-detached house in Exeter costs between \u00A35,000 and \u00A38,000. Detached homes range from \u00A37,000 to \u00A312,000 depending on size, pitch, and materials. We provide free no-obligation quotes so you know the exact cost before any work starts.',
+      answer: 'A full reroof on a typical semi-detached house in Exeter costs between £5,000 and £8,000. Detached homes range from £7,000 to £12,000 depending on size, pitch, and materials. We provide free no-obligation quotes so you know the exact cost before any work starts.',
     },
     {
       question: 'How quickly can you come out for an emergency?',
@@ -163,19 +163,19 @@ export const CLIENT: ClientConfig = {
     },
     {
       question: 'Are you insured?',
-      answer: 'Yes, we carry \u00A35 million public liability insurance on every job. We can provide a copy of our insurance certificate on request before any work begins.',
+      answer: 'Yes, we carry £5 million public liability insurance on every job. We can provide a copy of our insurance certificate on request before any work begins.',
     },
     {
       question: 'Do I need scaffolding for roof work?',
-      answer: 'Most roof work above single-storey height requires scaffolding for safety. We arrange all scaffolding as part of your quote \u2014 the cost is included, not added as a surprise extra. For smaller repairs at lower heights, we can often use ladders and roof access equipment.',
+      answer: 'Most roof work above single-storey height requires scaffolding for safety. We arrange all scaffolding as part of your quote — the cost is included, not added as a surprise extra. For smaller repairs at lower heights, we can often use ladders and roof access equipment.',
     },
     {
       question: 'What areas do you cover?',
-      answer: 'We cover Exeter and the whole of East Devon including Exmouth, Topsham, Crediton, Tiverton, Dawlish, Honiton, Sidmouth, Cullompton, and surrounding villages. If you are unsure whether we cover your area, just ask \u2014 we probably do.',
+      answer: 'We cover Exeter and the whole of East Devon including Exmouth, Topsham, Crediton, Tiverton, Dawlish, Honiton, Sidmouth, Cullompton, and surrounding villages. If you are unsure whether we cover your area, just ask — we probably do.',
     },
     {
       question: 'How long does a full reroof take?',
-      answer: 'A typical semi-detached house takes 3\u20135 working days. Detached homes and more complex roofs may take 5\u20137 days. Weather can extend timelines, but we always keep you informed and never leave a roof uncovered overnight.',
+      answer: 'A typical semi-detached house takes 3–5 working days. Detached homes and more complex roofs may take 5–7 days. Weather can extend timelines, but we always keep you informed and never leave a roof uncovered overnight.',
     },
     {
       question: 'Can you match my existing tiles?',
