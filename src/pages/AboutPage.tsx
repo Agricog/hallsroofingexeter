@@ -110,7 +110,7 @@ export default function AboutPage(): JSX.Element {
               {CLIENT.services.map((s) => (
                 <Link
                   key={s.slug}
-                  to={'/' + s.slug}
+                  to={'/services/' + s.slug}
                   className="flex items-center gap-2 text-sm no-underline text-slate-600 hover:text-amber-700 transition-colors"
                 >
                   <CheckCircle size={15} style={{ color: 'var(--color-success)' }} />
