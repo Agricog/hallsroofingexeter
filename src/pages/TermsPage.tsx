@@ -1,0 +1,122 @@
+// ============================================================
+// CallFirst Client Template — Terms of Service Page
+// ============================================================
+
+import { Link } from 'react-router-dom'
+import { CLIENT } from '@/data/clientConfig'
+import { buildStructuredData, getBreadcrumbSchema } from '@/utils/seo'
+import SeoHead from '@/components/common/SeoHead'
+import type { SeoPageData } from '@/types'
+
+const BASE_URL = 'https://' + CLIENT.domain
+
+export default function TermsPage(): JSX.Element {
+  const page: SeoPageData = {
+    title: 'Terms of Service | ' + CLIENT.businessName,
+    description: 'Terms of service for ' + CLIENT.businessName + '. Our terms and conditions for roofing work and use of this website.',
+    canonical: BASE_URL + '/terms',
+    ogImage: BASE_URL + '/og-image.jpg',
+    type: 'website',
+    keywords: [],
+  }
+
+  const structuredData = buildStructuredData(page, [
+    getBreadcrumbSchema([
+      { name: 'Home', url: BASE_URL },
+      { name: 'Terms of Service', url: page.canonical },
+    ]),
+  ])
+
+  return (
+    <>
+      <SeoHead page={page} structuredData={structuredData} />
+
+      {/* Breadcrumb */}
+      <div className="bg-slate-50 border-b border-slate-100">
+        <div className="mx-auto max-w-6xl px-4 py-3">
+          <nav className="flex items-center gap-2 text-sm text-slate-400" aria-label="Breadcrumb">
+            <Link to="/" className="hover:text-slate-600 no-underline text-slate-400">Home</Link>
+            <span>/</span>
+            <span className="text-slate-600">Terms of Service</span>
+          </nav>
+        </div>
+      </div>
+
+      {/* Content */}
+      <section className="py-12 md:py-20 px-4">
+        <div className="mx-auto max-w-3xl">
+          <h1 className="font-heading text-[clamp(28px,5vw,44px)] leading-[1.1] text-slate-800 mb-8">
+            Terms of Service
+          </h1>
+
+          <div className="text-[15px] text-slate-600 leading-[1.85] space-y-5">
+            <p className="text-sm text-slate-400">
+              {'Last updated: ' + new Date().toLocaleDateString('en-GB', { month: 'long', year: 'numeric' })}
+            </p>
+
+            <h2 className="font-heading text-2xl text-slate-800 !mt-10 mb-4">Overview</h2>
+            <p>
+              {'These terms govern your use of the ' + CLIENT.businessName + ' website (' + CLIENT.domain + ') and any roofing services we provide. By using this website or engaging our services, you agree to these terms.'}
+            </p>
+
+            <h2 className="font-heading text-2xl text-slate-800 !mt-10 mb-4">Quotes and Estimates</h2>
+            <p>
+              {'All prices provided through our website chat or by phone are estimates only. A final quote will be provided after a physical inspection of the work required. Estimates given by our AI assistant are based on typical job costs and may vary depending on access, materials, and the condition of your roof.'}
+            </p>
+            <p>
+              {'Written quotes are valid for 30 days from the date of issue unless otherwise stated. We reserve the right to adjust a quote if the scope of work changes or if hidden damage is discovered during the job.'}
+            </p>
+
+            <h2 className="font-heading text-2xl text-slate-800 !mt-10 mb-4">Booking and Cancellation</h2>
+            <p>
+              {'Work is confirmed when you accept our written quote. You may cancel at any time before work begins at no cost. If you cancel after work has started, you will be charged for materials purchased and work completed to that point.'}
+            </p>
+
+            <h2 className="font-heading text-2xl text-slate-800 !mt-10 mb-4">Our Guarantees</h2>
+            <p>
+              {'All repair work is guaranteed for 12 months. Full reroofs are guaranteed for 20 years covering both materials and workmanship. Flat roof installations are guaranteed for the lifetime of the membrane system. Guarantees are provided in writing upon completion of the work.'}
+            </p>
+            <p>
+              {'Guarantees do not cover damage caused by storms, third-party interference, structural movement, or failure to maintain guttering and drainage as advised.'}
+            </p>
+
+            <h2 className="font-heading text-2xl text-slate-800 !mt-10 mb-4">Insurance</h2>
+            <p>
+              {CLIENT.businessName + ' carries \u00A3' + CLIENT.insuranceAmount + ' public liability insurance. A copy of our insurance certificate is available on request before any work begins. All work is carried out in accordance with current building regulations.'}
+            </p>
+
+            <h2 className="font-heading text-2xl text-slate-800 !mt-10 mb-4">Payment</h2>
+            <p>
+              {'Payment terms will be agreed in writing before work begins. For larger jobs, we may require a deposit for materials. Final payment is due on completion of the work. We accept bank transfer, cash, and card payments.'}
+            </p>
+
+            <h2 className="font-heading text-2xl text-slate-800 !mt-10 mb-4">Website Use</h2>
+            <p>
+              {'This website is provided for information and to help you get a roofing quote. The AI chat assistant provides estimated prices based on typical costs. These are not binding quotes. All content on this website is owned by ' + CLIENT.businessName + ' and may not be reproduced without permission.'}
+            </p>
+
+            <h2 className="font-heading text-2xl text-slate-800 !mt-10 mb-4">Limitation of Liability</h2>
+            <p>
+              {'While we take every care to ensure the information on this website is accurate, we do not guarantee that it is error-free. ' + CLIENT.businessName + ' is not liable for any loss arising from your use of this website or reliance on estimates provided through the chat assistant.'}
+            </p>
+
+            <h2 className="font-heading text-2xl text-slate-800 !mt-10 mb-4">Governing Law</h2>
+            <p>
+              {'These terms are governed by the laws of England and Wales. Any disputes will be subject to the exclusive jurisdiction of the courts of England and Wales.'}
+            </p>
+
+            <h2 className="font-heading text-2xl text-slate-800 !mt-10 mb-4">Contact</h2>
+            <p>
+              {'If you have any questions about these terms, contact us at:'}
+            </p>
+            <p>
+              {CLIENT.businessName}<br />
+              {'Phone: ' + CLIENT.phone}<br />
+              {'Email: info@' + CLIENT.domain}
+            </p>
+          </div>
+        </div>
+      </section>
+    </>
+  )
+}
