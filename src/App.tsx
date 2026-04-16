@@ -1,7 +1,6 @@
 // ============================================================
 // CallFirst Client Template — App Router
 // ============================================================
-
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import Header from '@/components/layout/Header'
@@ -29,24 +28,19 @@ export default function App(): JSX.Element {
             <Routes>
               {/* Home */}
               <Route path="/" element={<HomePage />} />
-
               {/* Services */}
               <Route path="/services" element={<ServicesPage />} />
-              <Route path="/:slug" element={<ServicePage />} />
-
+              <Route path="/services/:slug" element={<ServicePage />} />
               {/* Areas */}
               <Route path="/areas" element={<AreasPage />} />
               <Route path="/areas/:slug" element={<AreaPage />} />
-
               {/* Emergency */}
               <Route path="/emergency" element={<EmergencyPage />} />
-
               {/* About */}
               <Route path="/about" element={<AboutPage />} />
               {/* Legal */}
               <Route path="/privacy" element={<PrivacyPage />} />
               <Route path="/terms" element={<TermsPage />} />
-
               {/* 404 */}
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
