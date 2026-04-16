@@ -71,8 +71,11 @@ export default function ServicePage(): JSX.Element {
             <div className="flex-1">
               <Link
                 to="/"
+              to="/services"
                 className="inline-flex items-center gap-1.5 text-sm text-slate-400 hover:text-slate-600 no-underline mb-6"
               >
+                <ArrowLeft size={14} />
+                All services
                 <ArrowLeft size={14} />
                 All services
               </Link>
@@ -171,7 +174,7 @@ export default function ServicePage(): JSX.Element {
             {relatedServices.map((s) => (
               <Link
                 key={s.slug}
-                to={'/' + s.slug}
+                to={'/services/' + s.slug}
                 className="card p-5 text-center no-underline group"
               >
                 <h3 className="font-heading text-base text-slate-800 mb-1">{s.name}</h3>
