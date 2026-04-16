@@ -23,7 +23,7 @@ export default function ServiceCard({ service }: ServiceCardProps): JSX.Element 
 
   return (
     <Link
-      to={'/' + service.slug}
+      to={'/services/' + service.slug}
       className="card p-6 flex flex-col gap-4 no-underline group"
     >
       <div
