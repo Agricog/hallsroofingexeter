@@ -15,6 +15,8 @@ import EmergencyPage from '@/pages/EmergencyPage'
 import AboutPage from '@/pages/AboutPage'
 import NotFoundPage from '@/pages/NotFoundPage'
 import ScrollToTop from '@/components/common/ScrollToTop'
+import PrivacyPage from '@/pages/PrivacyPage'
+import TermsPage from '@/pages/TermsPage'
 
 export default function App(): JSX.Element {
   return (
@@ -41,6 +43,9 @@ export default function App(): JSX.Element {
 
               {/* About */}
               <Route path="/about" element={<AboutPage />} />
+              {/* Legal */}
+              <Route path="/privacy" element={<PrivacyPage />} />
+              <Route path="/terms" element={<TermsPage />} />
 
               {/* 404 */}
               <Route path="*" element={<NotFoundPage />} />
