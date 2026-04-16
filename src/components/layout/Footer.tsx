@@ -43,7 +43,7 @@ export default function Footer(): JSX.Element {
               {CLIENT.services.map((service) => (
                 <li key={service.slug}>
                   <Link
-                    to={'/' + service.slug}
+                    to={'/services/' + service.slug}
                     className="text-slate-400 hover:text-white text-sm no-underline transition-colors"
                   >
                     {service.name}
