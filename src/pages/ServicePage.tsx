@@ -70,12 +70,9 @@ export default function ServicePage(): JSX.Element {
             {/* Left: Content */}
             <div className="flex-1">
               <Link
-                to="/"
-              to="/services"
+                to="/services"
                 className="inline-flex items-center gap-1.5 text-sm text-slate-400 hover:text-slate-600 no-underline mb-6"
               >
-                <ArrowLeft size={14} />
-                All services
                 <ArrowLeft size={14} />
                 All services
               </Link>
