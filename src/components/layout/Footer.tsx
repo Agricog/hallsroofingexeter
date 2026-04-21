@@ -107,11 +107,11 @@ export default function Footer(): JSX.Element {
               </li>
               <li>
                 <a
-                  href={'mailto:hello@' + CLIENT.domain}
+                  href={'mailto:info@' + CLIENT.domain}
                   className="flex items-center gap-2.5 text-slate-400 hover:text-white text-sm no-underline transition-colors"
                 >
                   <Mail size={15} className="shrink-0" />
-                  {'hello@' + CLIENT.domain}
+                  {'info@' + CLIENT.domain}
                 </a>
               </li>
               <li className="flex items-start gap-2.5 text-slate-400 text-sm">
