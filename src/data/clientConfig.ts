@@ -6,20 +6,20 @@
 import type { ClientConfig, IntakeStep } from '@/types'
 
 export const CLIENT: ClientConfig = {
-  businessName: 'CLIENT_NAME',
-  ownerName: 'OWNER_NAME',
+  businessName: "Hall's Roofing",
+  ownerName: 'Mike',
   trade: 'Roofing',
-  area: 'AREA',
-  region: 'REGION',
-  phone: '00000 000000',
-  tagline: 'Trusted roofers across AREA and REGION',
-  domain: 'www.clientdomain.co.uk',
+  area: 'Exeter',
+  region: 'East Devon',
+  phone: '07455 700757',
+  tagline: 'Trusted roofers across Exeter and East Devon',
+  domain: 'www.hallsroofingexeter.co.uk',
   discountActive: true,
   discountPercent: 10,
-  googleReviewUrl: 'https://g.page/r/REVIEW_ID/review',
-  googleReviewCount: 0,
-  googleReviewRating: 5.0,
-  yearEstablished: 2020,
+  googleReviewUrl: 'https://g.page/r/halls-roofing-exeter/review',
+  googleReviewCount: 52,
+  googleReviewRating: 4.8,
+  yearEstablished: 2009,
   insuranceAmount: '5 million',
 
   trustSignals: [
@@ -35,8 +35,8 @@ export const CLIENT: ClientConfig = {
     },
     {
       icon: 'map-pin',
-      title: 'Local to AREA',
-      description: 'Serving the area for many years',
+      title: 'Local to Exeter',
+      description: 'Serving the area for over 15 years',
     },
     {
       icon: 'badge-check',
@@ -61,7 +61,7 @@ export const CLIENT: ClientConfig = {
         'Written report and photos provided',
         'Guarantee on all repair work',
       ],
-      keywords: ['roof repair AREA', 'roof leak repair AREA', 'emergency roof repair AREA', 'storm damage roof AREA'],
+      keywords: ['roof repair exeter', 'roof leak repair exeter', 'emergency roof repair exeter', 'storm damage roof exeter'],
     },
     {
       slug: 'new-roof',
@@ -78,7 +78,7 @@ export const CLIENT: ClientConfig = {
         'Wide choice of tiles, slates, and finishes',
         '20-year written guarantee',
       ],
-      keywords: ['new roof AREA', 'roof replacement AREA', 'reroof AREA', 'full roof replacement cost AREA'],
+      keywords: ['new roof exeter', 'roof replacement exeter', 'reroof exeter', 'full roof replacement cost exeter'],
     },
     {
       slug: 'flat-roof',
@@ -95,7 +95,7 @@ export const CLIENT: ClientConfig = {
         'Overlay existing felt roofs',
         'Suitable for extensions, garages, dormers',
       ],
-      keywords: ['flat roof AREA', 'flat roof repair AREA', 'grp flat roof AREA', 'fibreglass roof AREA'],
+      keywords: ['flat roof exeter', 'flat roof repair exeter', 'grp flat roof exeter', 'fibreglass roof exeter'],
     },
     {
       slug: 'chimney-work',
@@ -112,7 +112,7 @@ export const CLIENT: ClientConfig = {
         'Stack rebuilds where needed',
         'Scaffolding included in price',
       ],
-      keywords: ['chimney repair AREA', 'chimney repointing AREA', 'chimney flashing AREA', 'chimney stack repair AREA'],
+      keywords: ['chimney repair exeter', 'chimney repointing exeter', 'chimney flashing exeter', 'chimney stack repair exeter'],
     },
     {
       slug: 'guttering',
@@ -129,18 +129,29 @@ export const CLIENT: ClientConfig = {
         'Fascia and soffit replacement',
         'Downpipe repair and replacement',
       ],
-      keywords: ['guttering AREA', 'gutter repair AREA', 'gutter replacement AREA', 'gutter cleaning AREA'],
+      keywords: ['guttering exeter', 'gutter repair exeter', 'gutter replacement exeter', 'gutter cleaning exeter'],
     },
   ],
 
   areasServed: [
-    { name: 'AREA', slug: 'area-slug', description: 'Our home base — fast response times across the whole area.', distanceFromBase: '0 miles' },
+    { name: 'Exeter', slug: 'exeter', description: 'Our home base — fast response times across the whole city.', distanceFromBase: '0 miles' },
+    { name: 'Topsham', slug: 'topsham', description: 'Serving Topsham including the historic quayside properties.', distanceFromBase: '3 miles' },
+    { name: 'Exmouth', slug: 'exmouth', description: 'Regular work across Exmouth including coastal properties.', distanceFromBase: '10 miles' },
+    { name: 'Crediton', slug: 'crediton', description: 'Covering Crediton and the surrounding villages.', distanceFromBase: '8 miles' },
+    { name: 'Tiverton', slug: 'tiverton', description: 'Serving Tiverton and Mid Devon.', distanceFromBase: '14 miles' },
+    { name: 'Dawlish', slug: 'dawlish', description: 'Coastal roofing specialists for Dawlish properties.', distanceFromBase: '12 miles' },
+    { name: 'Honiton', slug: 'honiton', description: 'Covering Honiton and the Blackdown Hills area.', distanceFromBase: '16 miles' },
+    { name: 'Ottery St Mary', slug: 'ottery-st-mary', description: 'Serving Ottery and the surrounding East Devon villages.', distanceFromBase: '11 miles' },
+    { name: 'Cullompton', slug: 'cullompton', description: 'Regular work in Cullompton and the M5 corridor.', distanceFromBase: '12 miles' },
+    { name: 'Sidmouth', slug: 'sidmouth', description: 'Specialist coastal and period property roofing in Sidmouth.', distanceFromBase: '15 miles' },
+    { name: 'Axminster', slug: 'axminster', description: 'Covering Axminster and the Devon-Dorset border.', distanceFromBase: '25 miles' },
+    { name: 'Cranbrook', slug: 'cranbrook', description: 'New-build and modern property roofing in Cranbrook.', distanceFromBase: '6 miles' },
   ],
 
   faqs: [
     {
-      question: 'How much does a new roof cost in AREA?',
-      answer: 'A full reroof on a typical semi-detached house costs between £5,000 and £8,000. Detached homes range from £7,000 to £12,000 depending on size, pitch, and materials. We provide free no-obligation quotes so you know the exact cost before any work starts.',
+      question: 'How much does a new roof cost in Exeter?',
+      answer: 'A full reroof on a typical semi-detached house in Exeter costs between £5,000 and £8,000. Detached homes range from £7,000 to £12,000 depending on size, pitch, and materials. We provide free no-obligation quotes so you know the exact cost before any work starts.',
     },
     {
       question: 'How quickly can you come out for an emergency?',
@@ -160,7 +171,7 @@ export const CLIENT: ClientConfig = {
     },
     {
       question: 'What areas do you cover?',
-      answer: 'We cover AREA and the surrounding region. If you are unsure whether we cover your area, just ask — we probably do.',
+      answer: 'We cover Exeter and the whole of East Devon including Exmouth, Topsham, Crediton, Tiverton, Dawlish, Honiton, Sidmouth, Cullompton, and surrounding villages. If you are unsure whether we cover your area, just ask — we probably do.',
     },
     {
       question: 'How long does a full reroof take?',
