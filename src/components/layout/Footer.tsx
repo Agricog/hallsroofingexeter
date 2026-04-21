@@ -10,6 +10,7 @@ export default function Footer(): JSX.Element {
   const phoneClean = CLIENT.phone.replace(/\s/g, '')
   const currentYear = new Date().getFullYear()
   const yearsInBusiness = currentYear - CLIENT.yearEstablished
+  const emailDomain = CLIENT.domain.replace(/^www\./, '')
 
   return (
     <footer style={{ background: 'var(--color-slate-900)' }}>
@@ -107,11 +108,11 @@ export default function Footer(): JSX.Element {
               </li>
               <li>
                 <a
-                  href={'mailto:info@' + CLIENT.domain}
+                  href={'mailto:info@' + emailDomain}
                   className="flex items-center gap-2.5 text-slate-400 hover:text-white text-sm no-underline transition-colors"
                 >
                   <Mail size={15} className="shrink-0" />
-                  {'info@' + CLIENT.domain}
+                  {'info@' + emailDomain}
                 </a>
               </li>
               <li className="flex items-start gap-2.5 text-slate-400 text-sm">
