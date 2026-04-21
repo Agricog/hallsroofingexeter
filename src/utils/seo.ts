@@ -113,7 +113,7 @@ export function getFaqSchema() {
 export function getServiceSchema(service: ServiceConfig) {
   return {
     '@type': 'Service',
-    '@id': `${BASE_URL}/${service.slug}/#service`,
+    '@id': `${BASE_URL}/services/${service.slug}/#service`,
     name: `${service.name} in ${CLIENT.area}`,
     description: service.longDescription,
     provider: { '@id': `${BASE_URL}/#business` },
@@ -184,7 +184,7 @@ export function getServicePageStructuredData(service: ServiceConfig) {
   const page: SeoPageData = {
     title: `${service.name} ${CLIENT.area} | ${CLIENT.businessName} | From \u00A3${service.priceFrom}`,
     description: `${service.shortDescription} ${CLIENT.businessName} in ${CLIENT.area}. Free quotes, all work guaranteed. Call ${CLIENT.phone}.`,
-    canonical: `${BASE_URL}/${service.slug}`,
+    canonical: `${BASE_URL}/services/${service.slug}`,
     ogImage: `${BASE_URL}/og-image.jpg`,
     type: 'website',
     keywords: service.keywords,
