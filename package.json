@@ -6,10 +6,13 @@
   "scripts": {
     "dev": "vite --port 3003",
     "build": "tsc && vite build",
-    "start": "vite preview --host --port 3003",
+    "start": "node server.js",
     "preview": "vite preview"
   },
   "dependencies": {
+    "compression": "^1.7.4",
+    "express": "^4.21.0",
+    "helmet": "^8.0.0",
     "lucide-react": "^0.445.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -27,3 +30,4 @@
     "vite": "^5.4.1"
   }
 }
+
