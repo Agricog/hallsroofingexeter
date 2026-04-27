@@ -1,0 +1,35 @@
+---
+// ============================================================
+// BaseLayout — Single layout for every page
+// Includes: SEO head, Header, Footer, global styles
+// ============================================================
+import type { SeoPageData } from '../types'
+import BaseHead from '../components/BaseHead.astro'
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+import '../styles/global.css'
+
+interface Props {
+  page: SeoPageData
+  structuredData: Record<string, unknown>
+}
+
+const { page, structuredData } = Astro.props
+---
+
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <BaseHead page={page} structuredData={structuredData} />
+  </head>
+  <body>
+    <a href="#main-content" class="skip-nav">Skip to content</a>
+    <div class="flex flex-col min-h-screen">
+      <Header />
+      <main id="main-content" class="flex-1">
+        <slot />
+      </main>
+      <Footer />
+    </div>
+  </body>
+</html>

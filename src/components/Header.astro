@@ -1,0 +1,219 @@
+---
+// ============================================================
+// Header — Sticky, conversion-focused, mobile-first
+// Pure HTML + small inline-managed script for interactivity
+// ============================================================
+import { Icon } from 'astro-icon/components'
+import { CLIENT } from '../data/clientConfig'
+import EmergencyBanner from './EmergencyBanner.astro'
+
+const NAV_LINKS = [
+  { label: 'Services', href: '/services' },
+  { label: 'Areas', href: '/areas' },
+  { label: 'About', href: '/about' },
+  { label: 'Emergency', href: '/emergency', emergency: true },
+]
+
+const phoneClean = CLIENT.phone.replace(/\s/g, '')
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/'
+---
+
+<EmergencyBanner />
+
+<header
+  id="site-header"
+  class="sticky top-0 z-50 transition-all duration-300"
+  style="background: rgba(15, 23, 41, 1);"
+>
+  <div class="mx-auto max-w-6xl px-4 flex items-center justify-between h-16 md:h-[72px]">
+    <!-- Logo -->
+    <a
+      href="/"
+      class="no-underline flex items-center gap-2"
+      aria-label={`${CLIENT.businessName} home`}
+    >
+      <span class="font-heading text-[22px] md:text-[26px] text-white">
+        {CLIENT.businessName}
+      </span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex items-center gap-1" aria-label="Main navigation">
+      {NAV_LINKS.map((link) => {
+        const isActive = currentPath === link.href || currentPath.startsWith(link.href + '/')
+        const cls = link.emergency
+          ? 'text-red-400 hover:text-red-300 hover:bg-red-500/10'
+          : isActive
+            ? 'text-white bg-white/10'
+            : 'text-slate-400 hover:text-white hover:bg-white/5'
+        return (
+          <a
+            href={link.href}
+            class={`px-4 py-2 rounded-lg text-[14px] font-medium no-underline transition-colors ${cls}`}
+          >
+            {link.emergency && (
+              <Icon name="lucide:alert-triangle" size={14} class="inline -mt-0.5 mr-1" />
+            )}
+            {link.label}
+          </a>
+        )
+      })}
+    </nav>
+
+    <!-- Desktop CTAs -->
+    <div class="hidden md:flex items-center gap-3">
+      <a
+        href={`tel:${phoneClean}`}
+        class="flex items-center gap-2 text-slate-300 hover:text-white text-[14px] font-medium no-underline transition-colors"
+        data-track="phone_call:header"
+      >
+        <Icon name="lucide:phone" size={15} />
+        {CLIENT.phone}
+      </a>
+      <a
+        href="#quote"
+        class="btn-primary !py-2.5 !px-5 !text-[13px] no-underline"
+        data-scroll-to-chat
+        data-track="cta:header"
+      >
+        Get a Free Quote
+      </a>
+    </div>
+
+    <!-- Mobile: Phone + Menu -->
+    <div class="flex md:hidden items-center gap-2">
+      <a
+        href={`tel:${phoneClean}`}
+        class="flex items-center justify-center w-10 h-10 rounded-lg bg-white/10 text-white no-underline"
+        aria-label={`Call ${CLIENT.businessName}`}
+        data-track="phone_call:header_mobile"
+      >
+        <Icon name="lucide:phone" size={18} />
+      </a>
+      <button
+        id="mobile-menu-toggle"
+        class="flex items-center justify-center w-10 h-10 rounded-lg bg-white/10 text-white border-none cursor-pointer"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label="Open menu"
+      >
+        <Icon name="lucide:menu" size={20} class="menu-open-icon" />
+        <Icon name="lucide:x" size={20} class="menu-close-icon hidden" />
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <nav
+    id="mobile-menu"
+    class="md:hidden border-t border-white/10 hidden"
+    style="background: rgba(15, 23, 41, 0.98);"
+    aria-label="Mobile navigation"
+  >
+    <div class="px-4 py-4 flex flex-col gap-1">
+      {NAV_LINKS.map((link) => {
+        const isActive = currentPath === link.href || currentPath.startsWith(link.href + '/')
+        const cls = link.emergency
+          ? 'text-red-400 bg-red-500/10'
+          : isActive
+            ? 'text-white bg-white/10'
+            : 'text-slate-400 hover:text-white hover:bg-white/5'
+        return (
+          <a
+            href={link.href}
+            class={`px-4 py-3 rounded-lg text-[15px] font-medium no-underline transition-colors ${cls}`}
+          >
+            {link.emergency && (
+              <Icon name="lucide:alert-triangle" size={14} class="inline -mt-0.5 mr-1.5" />
+            )}
+            {link.label}
+          </a>
+        )
+      })}
+      <div class="mt-3 pt-3 border-t border-white/10">
+        <a
+          href="#quote"
+          class="btn-primary w-full !text-[15px] no-underline"
+          data-scroll-to-chat
+        >
+          Get a Free Quote
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  // ── Mobile menu toggle ─────────────────────────
+  const toggle = document.getElementById('mobile-menu-toggle')
+  const menu = document.getElementById('mobile-menu')
+  const openIcon = toggle?.querySelector('.menu-open-icon')
+  const closeIcon = toggle?.querySelector('.menu-close-icon')
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = menu?.classList.toggle('hidden') === false
+    toggle.setAttribute('aria-expanded', String(isOpen))
+    toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu')
+    openIcon?.classList.toggle('hidden', isOpen)
+    closeIcon?.classList.toggle('hidden', !isOpen)
+  })
+
+  // Close mobile menu on navigation
+  menu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      menu.classList.add('hidden')
+      toggle?.setAttribute('aria-expanded', 'false')
+      openIcon?.classList.remove('hidden')
+      closeIcon?.classList.add('hidden')
+    })
+  })
+
+  // ── Scroll detection (header blur effect) ──────
+  const header = document.getElementById('site-header')
+  const onScroll = () => {
+    if (window.scrollY > 20) {
+      if (header) {
+        header.style.background = 'rgba(15, 23, 41, 0.97)'
+        header.style.backdropFilter = 'blur(16px)'
+        header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.15)'
+      }
+    } else {
+      if (header) {
+        header.style.background = 'rgba(15, 23, 41, 1)'
+        header.style.backdropFilter = 'none'
+        header.style.boxShadow = 'none'
+      }
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true })
+
+  // ── Scroll-to-chat behaviour ───────────────────
+  // If chat exists on page, smooth-scroll to it. Otherwise navigate to homepage.
+  document.querySelectorAll('[data-scroll-to-chat]').forEach((el) => {
+    el.addEventListener('click', (e) => {
+      const chat = document.querySelector('.ai-chat-container')
+      if (chat) {
+        e.preventDefault()
+        chat.scrollIntoView({ behavior: 'smooth', block: 'center' })
+        setTimeout(() => {
+          const input = chat.querySelector<HTMLInputElement>('input')
+          input?.focus()
+        }, 500)
+      }
+      // Otherwise, default behaviour: link will navigate to "/#quote"
+    })
+  })
+
+  // ── Analytics tracking via data attributes ─────
+  document.querySelectorAll('[data-track]').forEach((el) => {
+    el.addEventListener('click', () => {
+      const track = el.getAttribute('data-track')
+      if (!track) return
+      const [event, location] = track.split(':')
+      if (typeof window !== 'undefined' && 'gtag' in window) {
+        const gtag = (window as unknown as { gtag: Function }).gtag
+        gtag('event', event, { location })
+      }
+    })
+  })
+</script>

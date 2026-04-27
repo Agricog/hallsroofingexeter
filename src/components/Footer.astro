@@ -1,0 +1,156 @@
+---
+import { Icon } from 'astro-icon/components'
+import { CLIENT } from '../data/clientConfig'
+
+const phoneClean = CLIENT.phone.replace(/\s/g, '')
+const currentYear = new Date().getFullYear()
+const yearsInBusiness = currentYear - CLIENT.yearEstablished
+const emailDomain = CLIENT.domain.replace(/^www\./, '')
+---
+
+<footer style="background: var(--color-slate-900);">
+  <div class="mx-auto max-w-6xl px-4 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+      <!-- Column 1: Brand -->
+      <div>
+        <div class="font-heading text-2xl text-white mb-3">
+          {CLIENT.businessName}
+        </div>
+        <p class="text-slate-400 text-sm leading-relaxed mb-5">
+          {CLIENT.tagline}. Established {CLIENT.yearEstablished} — {yearsInBusiness} years of trusted service.
+        </p>
+        <div class="flex items-center gap-2 mb-2">
+          <div class="stars text-sm">★★★★★</div>
+          <span class="text-slate-400 text-xs">
+            {CLIENT.googleReviewRating}/5 from {CLIENT.googleReviewCount} reviews
+          </span>
+        </div>
+      </div>
+
+      <!-- Column 2: Services -->
+      <div>
+        <h3 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">
+          Services
+        </h3>
+        <ul class="space-y-2.5">
+          {CLIENT.services.map((service) => (
+            <li>
+              <a
+                href={`/services/${service.slug}`}
+                class="text-slate-400 hover:text-white text-sm no-underline transition-colors"
+              >
+                {service.name}
+              </a>
+            </li>
+          ))}
+          <li>
+            <a
+              href="/emergency"
+              class="text-red-400 hover:text-red-300 text-sm no-underline transition-colors"
+            >
+              Emergency Repairs
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Areas -->
+      <div>
+        <h3 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">
+          Areas We Cover
+        </h3>
+        <ul class="space-y-2.5">
+          {CLIENT.areasServed.slice(0, 8).map((area) => (
+            <li>
+              <a
+                href={`/areas/${area.slug}`}
+                class="text-slate-400 hover:text-white text-sm no-underline transition-colors"
+              >
+                {area.name}
+              </a>
+            </li>
+          ))}
+          {CLIENT.areasServed.length > 8 && (
+            <li>
+              <a
+                href="/areas"
+                class="text-slate-400 hover:text-white text-sm no-underline transition-colors"
+              >
+                View all {CLIENT.areasServed.length} areas →
+              </a>
+            </li>
+          )}
+        </ul>
+      </div>
+
+      <!-- Column 4: Contact -->
+      <div>
+        <h3 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">
+          Contact
+        </h3>
+        <ul class="space-y-3">
+          <li>
+            <a
+              href={`tel:${phoneClean}`}
+              class="flex items-center gap-2.5 text-slate-400 hover:text-white text-sm no-underline transition-colors"
+            >
+              <Icon name="lucide:phone" size={15} class="shrink-0" />
+              {CLIENT.phone}
+            </a>
+          </li>
+          <li>
+            <a
+              href={`mailto:info@${emailDomain}`}
+              class="flex items-center gap-2.5 text-slate-400 hover:text-white text-sm no-underline transition-colors"
+            >
+              <Icon name="lucide:mail" size={15} class="shrink-0" />
+              info@{emailDomain}
+            </a>
+          </li>
+          <li class="flex items-start gap-2.5 text-slate-400 text-sm">
+            <Icon name="lucide:map-pin" size={15} class="shrink-0 mt-0.5" />
+            <span>{CLIENT.area}, {CLIENT.region}</span>
+          </li>
+          <li class="flex items-start gap-2.5 text-slate-400 text-sm">
+            <Icon name="lucide:clock" size={15} class="shrink-0 mt-0.5" />
+            <span style="white-space: pre-line;">{`Mon–Fri 7am–6pm
+Sat 8am–2pm
+Emergency: 24/7`}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="border-t border-white/10" style="background: rgba(0,0,0,0.2);">
+    <div class="mx-auto max-w-6xl px-4 py-5 flex flex-col sm:flex-row justify-between items-center gap-3">
+      <div class="text-slate-500 text-xs">
+        © {currentYear} {CLIENT.businessName}. All rights reserved.
+      </div>
+      <div class="flex items-center gap-4 text-xs">
+        <a
+          href="/privacy"
+          class="text-slate-500 hover:text-slate-300 no-underline transition-colors"
+        >
+          Privacy Policy
+        </a>
+        <a
+          href="/terms"
+          class="text-slate-500 hover:text-slate-300 no-underline transition-colors"
+        >
+          Terms
+        </a>
+        <span class="text-slate-600">Powered by</span>
+        <a
+          href="https://callfirst.co.uk"
+          class="text-slate-500 hover:text-slate-300 no-underline transition-colors"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          CallFirst
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

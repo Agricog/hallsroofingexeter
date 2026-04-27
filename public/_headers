@@ -1,0 +1,33 @@
+# =====================================================================
+# Cloudflare Pages Security Headers
+# Applied by Cloudflare to every response.
+# Tested against securityheaders.com — should achieve A grade.
+# =====================================================================
+
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests
+
+# Long-cache hashed assets (Astro fingerprints filenames)
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Self-hosted fonts (filenames are stable, safe to long-cache)
+/dm-sans-v17-latin-regular.woff2
+  Cache-Control: public, max-age=31536000, immutable
+/dm-sans-v17-latin-500.woff2
+  Cache-Control: public, max-age=31536000, immutable
+/dm-sans-v17-latin-600.woff2
+  Cache-Control: public, max-age=31536000, immutable
+/dm-sans-v17-latin-700.woff2
+  Cache-Control: public, max-age=31536000, immutable
+/dm-serif-display-v17-latin-regular.woff2
+  Cache-Control: public, max-age=31536000, immutable
+
+# HTML — short cache so updates roll out quickly
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate

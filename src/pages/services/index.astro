@@ -1,0 +1,75 @@
+---
+// ============================================================
+// Services Listing Page
+// ============================================================
+import { CLIENT } from '../../data/clientConfig'
+import { buildStructuredData, getBreadcrumbSchema } from '../../utils/seo'
+import type { SeoPageData } from '../../types'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import Breadcrumb from '../../components/Breadcrumb.astro'
+import ServiceCard from '../../components/ServiceCard.astro'
+import CtaSection from '../../components/CtaSection.astro'
+import AiChatIntake from '../../components/react/AiChatIntake'
+
+const BASE_URL = `https://${CLIENT.domain}`
+
+const page: SeoPageData = {
+  title: `Roofing Services ${CLIENT.area} | ${CLIENT.businessName}`,
+  description: `Full range of roofing services in ${CLIENT.area}: roof repairs, reroofs, flat roofing, chimney work, and guttering. Free quotes. All work guaranteed.`,
+  canonical: `${BASE_URL}/services`,
+  ogImage: `${BASE_URL}/og-image.jpg`,
+  type: 'website',
+  keywords: [`roofing services ${CLIENT.area.toLowerCase()}`],
+}
+
+const structuredData = buildStructuredData(page, [
+  getBreadcrumbSchema([
+    { name: 'Home', url: BASE_URL },
+    { name: 'Services', url: page.canonical },
+  ]),
+])
+---
+
+<BaseLayout page={page} structuredData={structuredData}>
+  <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Services' }]} />
+
+  <section class="py-12 md:py-20 px-4">
+    <div class="mx-auto max-w-6xl">
+      <div class="text-center mb-12">
+        <h1 class="font-heading text-[clamp(28px,5vw,44px)] leading-[1.1] text-slate-800 mb-4">
+          Roofing services in <span style="color: var(--color-brand);">{CLIENT.area}</span>
+        </h1>
+        <p class="text-lg text-slate-500 max-w-2xl mx-auto">
+          From emergency leak repairs to full reroofs, {CLIENT.businessName} handles every aspect of domestic and commercial roofing across {CLIENT.area} and {CLIENT.region}.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {CLIENT.services.map((service) => (
+          <ServiceCard service={service} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Chat section -->
+  <section class="py-12 px-4 section-warm">
+    <div class="mx-auto max-w-6xl">
+      <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+        <div class="flex-1 text-center lg:text-left">
+          <h2 class="font-heading text-2xl md:text-[32px] text-slate-800 mb-3">
+            Not sure which service you need?
+          </h2>
+          <p class="text-slate-500 mb-2">
+            Tell our AI assistant about your roof in 30 seconds and we'll point you the right way.
+          </p>
+        </div>
+        <div class="flex-1 flex justify-center w-full max-w-[440px]">
+          <AiChatIntake client:visible />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaSection />
+</BaseLayout>

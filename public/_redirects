@@ -1,0 +1,10 @@
+# =====================================================================
+# Cloudflare Pages Redirects
+# Forces canonical URL: www.hallsroofingexeter.co.uk, no trailing slash
+# This is what fixes the "Page with redirect" SEO issue.
+# =====================================================================
+
+# Force www subdomain (apex → www, 301 permanent)
+https://hallsroofingexeter.co.uk/*  https://www.hallsroofingexeter.co.uk/:splat  301!
+http://hallsroofingexeter.co.uk/*   https://www.hallsroofingexeter.co.uk/:splat  301!
+http://www.hallsroofingexeter.co.uk/*  https://www.hallsroofingexeter.co.uk/:splat  301!

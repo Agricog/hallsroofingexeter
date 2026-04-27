@@ -1,0 +1,167 @@
+---
+// ============================================================
+// Service Detail Page (Dynamic)
+// At build time, Astro generates one static HTML file per service.
+// ============================================================
+import { Icon } from 'astro-icon/components'
+import { CLIENT } from '../../data/clientConfig'
+import { getServicePageStructuredData } from '../../utils/seo'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import Breadcrumb from '../../components/Breadcrumb.astro'
+import TrustStrip from '../../components/TrustStrip.astro'
+import FaqSection from '../../components/FaqSection.astro'
+import CtaSection from '../../components/CtaSection.astro'
+import AiChatIntake from '../../components/react/AiChatIntake'
+
+export function getStaticPaths() {
+  return CLIENT.services.map((service) => ({
+    params: { slug: service.slug },
+    props: { service },
+  }))
+}
+
+const { service } = Astro.props
+const phoneClean = CLIENT.phone.replace(/\s/g, '')
+const { page, data } = getServicePageStructuredData(service)
+const relatedServices = CLIENT.services.filter((s) => s.slug !== service.slug).slice(0, 3)
+
+const serviceFaqs = [
+  {
+    question: `How much does ${service.name.toLowerCase()} cost in ${CLIENT.area}?`,
+    answer: `${service.name} in ${CLIENT.area} typically costs between £${service.priceFrom} and £${service.priceTo}. The final price depends on the size of the job, materials required, and access to the roof. We provide free quotes so you know the exact cost before we start.`,
+  },
+  {
+    question: `How quickly can you do ${service.name.toLowerCase()}?`,
+    answer:
+      'For emergency work we can often attend the same day. For planned work, we typically quote within 48 hours and schedule within a week, depending on our current workload and the weather.',
+  },
+  {
+    question: `Do you guarantee your ${service.name.toLowerCase()} work?`,
+    answer: `Yes. All ${service.name.toLowerCase()} work comes with a written guarantee covering both materials and workmanship. We also carry £${CLIENT.insuranceAmount} public liability insurance.`,
+  },
+]
+---
+
+<BaseLayout page={page} structuredData={data}>
+  <Breadcrumb
+    items={[
+      { label: 'Home', href: '/' },
+      { label: 'Services', href: '/services' },
+      { label: service.name },
+    ]}
+  />
+
+  <!-- Hero -->
+  <section class="py-12 md:py-20 px-4">
+    <div class="mx-auto max-w-6xl">
+      <div class="flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
+        <!-- Left: Content -->
+        <div class="flex-1">
+          <a
+            href="/services"
+            class="inline-flex items-center gap-1.5 text-sm text-slate-400 hover:text-slate-600 no-underline mb-6"
+          >
+            <Icon name="lucide:arrow-left" size={14} />
+            All services
+          </a>
+
+          <h1 class="font-heading text-[clamp(28px,5vw,44px)] leading-[1.1] text-slate-800 mb-4">
+            {service.name} in <span style="color: var(--color-brand);">{CLIENT.area}</span>
+          </h1>
+
+          <p class="text-lg text-slate-500 leading-relaxed mb-6">
+            {service.longDescription}
+          </p>
+
+          <!-- Price indicator -->
+          <div
+            class="inline-flex items-center gap-3 px-5 py-3 rounded-xl mb-8"
+            style="background: var(--color-brand-50); border: 1px solid rgba(217, 119, 6, 0.15);"
+          >
+            <span class="text-sm text-slate-600">Typical cost:</span>
+            <span class="font-heading text-lg" style="color: var(--color-brand-dark);">
+              £{service.priceFrom} – £{service.priceTo.toLocaleString()}
+            </span>
+          </div>
+
+          <!-- Features list -->
+          <div class="space-y-3 mb-8">
+            {service.features.map((feature) => (
+              <div class="flex items-start gap-2.5">
+                <Icon
+                  name="lucide:check-circle"
+                  size={18}
+                  class="shrink-0 mt-0.5"
+                  style="color: var(--color-success);"
+                />
+                <span class="text-[15px] text-slate-600">{feature}</span>
+              </div>
+            ))}
+          </div>
+
+          <!-- CTAs -->
+          <div class="flex flex-wrap gap-3">
+            <a
+              href="#quote"
+              class="btn-primary no-underline"
+              data-scroll-to-chat
+              data-track="cta:service_page"
+            >
+              Get a {service.name} Quote
+              <Icon name="lucide:chevron-right" size={18} />
+            </a>
+            <a
+              href={`tel:${phoneClean}`}
+              class="btn-secondary"
+              data-track="phone_call:service_page"
+            >
+              <Icon name="lucide:phone" size={17} />
+              {CLIENT.phone}
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: AI Chat -->
+        <div id="quote" class="flex-1 flex justify-center w-full max-w-[440px] lg:sticky lg:top-24">
+          <AiChatIntake client:visible />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TrustStrip />
+
+  <!-- Service FAQ -->
+  <section class="py-16 px-4 section-warm">
+    <FaqSection title={`${service.name} — Common Questions`} faqs={serviceFaqs} />
+  </section>
+
+  <!-- Related Services -->
+  <section class="py-16 px-4">
+    <div class="mx-auto max-w-4xl">
+      <h2 class="font-heading text-2xl text-slate-800 text-center mb-8">
+        Other services
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        {relatedServices.map((s) => (
+          <a
+            href={`/services/${s.slug}`}
+            class="card p-5 text-center no-underline group"
+          >
+            <h3 class="font-heading text-base text-slate-800 mb-1">{s.name}</h3>
+            <p class="text-xs text-slate-400 mb-2">From £{s.priceFrom}</p>
+            <span
+              class="text-xs flex items-center justify-center gap-1 group-hover:gap-2 transition-all"
+              style="color: var(--color-brand);"
+            >
+              View details
+              <Icon name="lucide:arrow-right" size={12} />
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaSection heading={`Need ${service.name.toLowerCase()} in ${CLIENT.area}?`} />
+</BaseLayout>

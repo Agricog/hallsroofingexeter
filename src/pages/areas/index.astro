@@ -1,0 +1,92 @@
+---
+// ============================================================
+// Areas Listing Page
+// ============================================================
+import { Icon } from 'astro-icon/components'
+import { CLIENT } from '../../data/clientConfig'
+import { buildStructuredData, getBreadcrumbSchema } from '../../utils/seo'
+import type { SeoPageData } from '../../types'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import Breadcrumb from '../../components/Breadcrumb.astro'
+import CtaSection from '../../components/CtaSection.astro'
+import AiChatIntake from '../../components/react/AiChatIntake'
+
+const BASE_URL = `https://${CLIENT.domain}`
+
+const page: SeoPageData = {
+  title: `Areas We Cover | ${CLIENT.businessName} | Roofers ${CLIENT.area}`,
+  description: `${CLIENT.businessName} provides roofing services across ${CLIENT.area} and ${CLIENT.region}. ${CLIENT.areasServed.map((a) => a.name).join(', ')}.`,
+  canonical: `${BASE_URL}/areas`,
+  ogImage: `${BASE_URL}/og-image.jpg`,
+  type: 'website',
+  keywords: [`roofer ${CLIENT.area.toLowerCase()}`, `roofing ${CLIENT.region.toLowerCase()}`],
+}
+
+const structuredData = buildStructuredData(page, [
+  getBreadcrumbSchema([
+    { name: 'Home', url: BASE_URL },
+    { name: 'Areas', url: page.canonical },
+  ]),
+])
+---
+
+<BaseLayout page={page} structuredData={structuredData}>
+  <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Areas' }]} />
+
+  <section class="py-12 md:py-20 px-4">
+    <div class="mx-auto max-w-4xl">
+      <div class="text-center mb-12">
+        <h1 class="font-heading text-[clamp(28px,5vw,44px)] leading-[1.1] text-slate-800 mb-4">
+          Areas we cover across <span style="color: var(--color-brand);">{CLIENT.region}</span>
+        </h1>
+        <p class="text-lg text-slate-500 max-w-2xl mx-auto">
+          {CLIENT.businessName} is based in {CLIENT.area} and provides roofing services across the whole of {CLIENT.region}. Click any area for local pricing and availability.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {CLIENT.areasServed.map((area) => (
+          <a
+            href={`/areas/${area.slug}`}
+            class="card p-5 flex items-start gap-4 no-underline group"
+          >
+            <div
+              class="w-10 h-10 rounded-lg flex items-center justify-center shrink-0"
+              style="background: var(--color-brand-50);"
+            >
+              <Icon name="lucide:map-pin" size={18} style="color: var(--color-brand);" />
+            </div>
+            <div>
+              <h2 class="font-heading text-base text-slate-800 mb-0.5 group-hover:text-amber-700 transition-colors">
+                Roofer in {area.name}
+              </h2>
+              <p class="text-sm text-slate-400 mb-1">{area.distanceFromBase} from {CLIENT.area}</p>
+              <p class="text-xs text-slate-500 leading-relaxed">{area.description}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Chat section -->
+  <section class="py-12 px-4 section-warm">
+    <div class="mx-auto max-w-6xl">
+      <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+        <div class="flex-1 text-center lg:text-left">
+          <h2 class="font-heading text-2xl md:text-[32px] text-slate-800 mb-3">
+            Get a quote for your area
+          </h2>
+          <p class="text-slate-500">
+            Tell our AI assistant about your roof and we'll get back to you with a quote.
+          </p>
+        </div>
+        <div class="flex-1 flex justify-center w-full max-w-[440px]">
+          <AiChatIntake client:visible />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaSection />
+</BaseLayout>

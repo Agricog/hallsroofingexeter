@@ -1,0 +1,136 @@
+---
+// ============================================================
+// Area Detail Page (Dynamic)
+// One static HTML file per area at build time.
+// ============================================================
+import { Icon } from 'astro-icon/components'
+import { CLIENT } from '../../data/clientConfig'
+import { getAreaPageStructuredData } from '../../utils/seo'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import Breadcrumb from '../../components/Breadcrumb.astro'
+import TrustStrip from '../../components/TrustStrip.astro'
+import ServiceCard from '../../components/ServiceCard.astro'
+import CtaSection from '../../components/CtaSection.astro'
+import AiChatIntake from '../../components/react/AiChatIntake'
+
+export function getStaticPaths() {
+  return CLIENT.areasServed.map((area) => ({
+    params: { slug: area.slug },
+    props: { area },
+  }))
+}
+
+const { area } = Astro.props
+const phoneClean = CLIENT.phone.replace(/\s/g, '')
+const { page, data } = getAreaPageStructuredData(area.name, area.slug)
+const nearbyAreas = CLIENT.areasServed.filter((a) => a.slug !== area.slug).slice(0, 6)
+---
+
+<BaseLayout page={page} structuredData={data}>
+  <Breadcrumb
+    items={[
+      { label: 'Home', href: '/' },
+      { label: 'Areas', href: '/areas' },
+      { label: area.name },
+    ]}
+  />
+
+  <!-- Hero -->
+  <section class="py-12 md:py-20 px-4">
+    <div class="mx-auto max-w-6xl">
+      <div class="flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
+        <div class="flex-1">
+          <a
+            href="/areas"
+            class="inline-flex items-center gap-1.5 text-sm text-slate-400 hover:text-slate-600 no-underline mb-6"
+          >
+            <Icon name="lucide:arrow-left" size={14} />
+            All areas
+          </a>
+
+          <div
+            class="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-full mb-4"
+            style="background: var(--color-brand-50); color: var(--color-brand-dark);"
+          >
+            <Icon name="lucide:map-pin" size={13} />
+            {area.distanceFromBase} from {CLIENT.area}
+          </div>
+
+          <h1 class="font-heading text-[clamp(28px,5vw,44px)] leading-[1.1] text-slate-800 mb-4">
+            Roofer in <span style="color: var(--color-brand);">{area.name}</span>
+          </h1>
+
+          <p class="text-lg text-slate-500 leading-relaxed mb-6">
+            {area.description} {CLIENT.businessName} provides the full range of roofing services in {area.name} including roof repairs, reroofs, flat roofing, chimney work, and guttering. All work is guaranteed and covered by our £{CLIENT.insuranceAmount} public liability insurance.
+          </p>
+
+          <p class="text-[15px] text-slate-500 leading-relaxed mb-8">
+            As a {CLIENT.area}-based company, we know {area.name} well and can respond quickly to both planned work and emergencies. Our pricing for {area.name} is the same as our standard {CLIENT.area} rates — no extra travel charges.
+          </p>
+
+          <div class="flex flex-wrap gap-3">
+            <a
+              href="#quote"
+              class="btn-primary no-underline"
+              data-scroll-to-chat
+              data-track="cta:area_page"
+            >
+              Get a Quote in {area.name}
+              <Icon name="lucide:chevron-right" size={18} />
+            </a>
+            <a
+              href={`tel:${phoneClean}`}
+              class="btn-secondary"
+              data-track="phone_call:area_page"
+            >
+              <Icon name="lucide:phone" size={17} />
+              {CLIENT.phone}
+            </a>
+          </div>
+        </div>
+
+        <div id="quote" class="flex-1 flex justify-center w-full max-w-[440px] lg:sticky lg:top-24">
+          <AiChatIntake client:visible />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TrustStrip />
+
+  <!-- Services in this area -->
+  <section class="py-16 px-4">
+    <div class="mx-auto max-w-6xl">
+      <h2 class="font-heading text-2xl text-slate-800 text-center mb-8">
+        Roofing services in {area.name}
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {CLIENT.services.map((service) => (
+          <ServiceCard service={service} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Nearby Areas -->
+  <section class="py-16 px-4 section-warm">
+    <div class="mx-auto max-w-4xl text-center">
+      <h2 class="font-heading text-2xl text-slate-800 mb-6">
+        Other areas near {area.name}
+      </h2>
+      <div class="flex flex-wrap gap-2.5 justify-center">
+        {nearbyAreas.map((a) => (
+          <a
+            href={`/areas/${a.slug}`}
+            class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-white border border-slate-200 text-sm text-slate-600 font-medium no-underline hover:border-amber-300 hover:text-amber-700 transition-colors"
+          >
+            <Icon name="lucide:map-pin" size={13} />
+            {a.name}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaSection heading={`Need a roofer in ${area.name}?`} />
+</BaseLayout>

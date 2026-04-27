@@ -1,0 +1,51 @@
+---
+import { Icon } from 'astro-icon/components'
+import { CLIENT } from '../data/clientConfig'
+
+interface Props {
+  heading?: string
+  subheading?: string
+}
+
+const phoneClean = CLIENT.phone.replace(/\s/g, '')
+const {
+  heading = `Need a roofer in ${CLIENT.area}?`,
+  subheading = `Get your free quote in under 30 seconds. ${CLIENT.ownerName} will call you back the same day.`,
+} = Astro.props
+---
+
+<section
+  class="py-20 px-4 text-center"
+  style="background: linear-gradient(135deg, var(--color-slate-900) 0%, var(--color-slate-800) 100%);"
+>
+  <div class="mx-auto max-w-2xl">
+    <h2 class="font-heading text-2xl md:text-[36px] text-white mb-4 leading-tight">
+      {heading}
+    </h2>
+    <p class="text-slate-400 text-base mb-10 max-w-md mx-auto leading-relaxed">
+      {subheading}
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a
+        href="/#quote"
+        class="btn-primary !py-4 !px-8 !text-base no-underline"
+        data-scroll-to-chat
+        data-track="cta:bottom_cta"
+      >
+        Get a Free Quote
+        <Icon name="lucide:chevron-right" size={18} />
+      </a>
+      <a
+        href={`tel:${phoneClean}`}
+        class="btn-phone !py-4 !px-8 !text-base"
+        data-track="phone_call:bottom_cta"
+      >
+        <Icon name="lucide:phone" size={18} />
+        {CLIENT.phone}
+      </a>
+    </div>
+    <p class="text-slate-500 text-xs mt-6">
+      No obligation. No call-out fee for quotes. £{CLIENT.insuranceAmount} public liability insured.
+    </p>
+  </div>
+</section>

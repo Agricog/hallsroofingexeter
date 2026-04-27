@@ -1,0 +1,49 @@
+---
+import { Icon } from 'astro-icon/components'
+import type { ServiceConfig } from '../types'
+
+const ICON_NAMES: Record<string, string> = {
+  wrench: 'lucide:wrench',
+  home: 'lucide:home',
+  layers: 'lucide:layers',
+  flame: 'lucide:flame',
+  droplets: 'lucide:droplets',
+}
+
+interface Props {
+  service: ServiceConfig
+}
+
+const { service } = Astro.props
+const iconName = ICON_NAMES[service.icon] || 'lucide:wrench'
+---
+
+<a
+  href={`/services/${service.slug}`}
+  class="card p-6 flex flex-col gap-4 no-underline group"
+>
+  <div
+    class="w-12 h-12 rounded-xl flex items-center justify-center"
+    style="background: var(--color-brand-50);"
+  >
+    <Icon name={iconName} size={22} style="color: var(--color-brand);" />
+  </div>
+
+  <div>
+    <h3 class="font-heading text-lg text-slate-800 mb-1.5">
+      {service.name}
+    </h3>
+    <p class="text-sm text-slate-500 leading-relaxed mb-3">
+      {service.shortDescription}
+    </p>
+    <div class="flex items-center justify-between">
+      <span class="text-sm font-semibold" style="color: var(--color-brand);">
+        From £{service.priceFrom}
+      </span>
+      <span class="text-xs text-slate-400 flex items-center gap-1 group-hover:text-slate-600 transition-colors">
+        Learn more
+        <Icon name="lucide:chevron-right" size={14} class="transition-transform group-hover:translate-x-0.5" />
+      </span>
+    </div>
+  </div>
+</a>
