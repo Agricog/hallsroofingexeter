@@ -1,15 +1,6 @@
-# =============================================
-# Cloudflare Pages Redirects
-# =============================================
-
-# Force www subdomain (apex → www, 301 permanent)
-https://hallsroofingexeter.co.uk/*  https://www.hallsroofingexeter.co.uk/:splat  301!
-http://hallsroofingexeter.co.uk/*   https://www.hallsroofingexeter.co.uk/:splat  301!
-http://www.hallsroofingexeter.co.uk/*  https://www.hallsroofingexeter.co.uk/:splat  301!
-
 # Old service URLs → new /services/ paths (legacy redirects)
-/flat-roof       /services/flat-roof       301!
-/roof-repair     /services/roof-repair     301!
-/new-roof        /services/new-roof        301!
-/chimney-work    /services/chimney-work    301!
-/guttering       /services/guttering       301!
+/flat-roof       /services/flat-roof       301
+/roof-repair     /services/roof-repair     301
+/new-roof        /services/new-roof        301
+/chimney-work    /services/chimney-work    301
+/guttering       /services/guttering       301
