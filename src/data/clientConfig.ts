@@ -13,7 +13,7 @@ export const CLIENT: ClientConfig = {
   region: 'East Devon',
   phone: '07455 700757',
   tagline: 'Trusted roofers across Exeter and East Devon',
-  domain: 'www.hallsroofingexeter.co.uk',
+  domain: 'hallsroofingexeter.co.uk',
   discountActive: true,
   discountPercent: 10,
   googleReviewUrl: 'https://g.page/r/halls-roofing-exeter/review',
