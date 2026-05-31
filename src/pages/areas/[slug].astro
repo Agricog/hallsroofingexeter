@@ -96,7 +96,32 @@ const nearbyAreas = CLIENT.areasServed.filter((a) => a.slug !== area.slug).slice
     </div>
   </section>
 
-  <TrustStrip />
+ <TrustStrip />
+
+  <!-- Local content for area -->
+  {area.localContent && (
+    <section class="py-16 px-4">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="font-heading text-2xl text-slate-800 mb-8 text-center">
+          Roofing in {area.name}
+        </h2>
+        <div class="space-y-6 text-slate-600 leading-relaxed">
+          <div>
+            <h3 class="font-heading text-lg text-slate-800 mb-2">Property types in {area.name}</h3>
+            <p>{area.localContent.propertyOverview}</p>
+          </div>
+          <div>
+            <h3 class="font-heading text-lg text-slate-800 mb-2">Local roofing conditions</h3>
+            <p>{area.localContent.localFactors}</p>
+          </div>
+          <div>
+            <h3 class="font-heading text-lg text-slate-800 mb-2">Our work in {area.name}</h3>
+            <p>{area.localContent.workInArea}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
 
   <!-- Services in this area -->
   <section class="py-16 px-4">
