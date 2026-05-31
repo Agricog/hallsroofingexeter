@@ -1,6 +1,7 @@
 ---
 // ============================================================
-// Service Detail Page (Dynamic) — src/pages/services/[slug].astro
+// Service Detail Page (Dynamic)
+// At build time, Astro generates one static HTML file per service.
 // ============================================================
 import { Icon } from 'astro-icon/components'
 import { CLIENT } from '../../data/clientConfig'
@@ -24,7 +25,7 @@ const phoneClean = CLIENT.phone.replace(/\s/g, '')
 const { page, data } = getServicePageStructuredData(service)
 const relatedServices = CLIENT.services.filter((s) => s.slug !== service.slug).slice(0, 3)
 
-const serviceFaqs = service.faqs ?? [
+const serviceFaqs = [
   {
     question: `How much does ${service.name.toLowerCase()} cost in ${CLIENT.area}?`,
     answer: `${service.name} in ${CLIENT.area} typically costs between £${service.priceFrom} and £${service.priceTo}. The final price depends on the size of the job, materials required, and access to the roof. We provide free quotes so you know the exact cost before we start.`,
@@ -50,9 +51,11 @@ const serviceFaqs = service.faqs ?? [
     ]}
   />
 
+  <!-- Hero -->
   <section class="py-12 md:py-20 px-4">
     <div class="mx-auto max-w-6xl">
       <div class="flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
+        <!-- Left: Content -->
         <div class="flex-1">
           
             href="/services"
@@ -70,6 +73,7 @@ const serviceFaqs = service.faqs ?? [
             {service.longDescription}
           </p>
 
+          <!-- Price indicator -->
           <div
             class="inline-flex items-center gap-3 px-5 py-3 rounded-xl mb-8"
             style="background: var(--color-brand-50); border: 1px solid rgba(217, 119, 6, 0.15);"
@@ -80,6 +84,7 @@ const serviceFaqs = service.faqs ?? [
             </span>
           </div>
 
+          <!-- Features list -->
           <div class="space-y-3 mb-8">
             {service.features.map((feature) => (
               <div class="flex items-start gap-2.5">
@@ -94,6 +99,7 @@ const serviceFaqs = service.faqs ?? [
             ))}
           </div>
 
+          <!-- CTAs -->
           <div class="flex flex-wrap gap-3">
             
               href="#quote"
@@ -115,6 +121,7 @@ const serviceFaqs = service.faqs ?? [
           </div>
         </div>
 
+        <!-- Right: AI Chat -->
         <div id="quote" class="flex-1 flex justify-center w-full max-w-[440px] lg:sticky lg:top-24">
           <AiChatIntake client:visible />
         </div>
@@ -124,41 +131,12 @@ const serviceFaqs = service.faqs ?? [
 
   <TrustStrip />
 
-  {service.localContent && (
-    <section class="py-16 px-4">
-      <div class="mx-auto max-w-3xl space-y-10">
-        <div>
-          <h2 class="font-heading text-2xl md:text-3xl text-slate-800 mb-4">
-            {service.name} on {CLIENT.area} Properties
-          </h2>
-          <p class="text-slate-600 leading-relaxed">
-            {service.localContent.propertyContext}
-          </p>
-        </div>
-        <div>
-          <h2 class="font-heading text-2xl md:text-3xl text-slate-800 mb-4">
-            Local Conditions and Common Causes
-          </h2>
-          <p class="text-slate-600 leading-relaxed">
-            {service.localContent.localFactors}
-          </p>
-        </div>
-        <div>
-          <h2 class="font-heading text-2xl md:text-3xl text-slate-800 mb-4">
-            Typical {service.name} Jobs in {CLIENT.area}
-          </h2>
-          <p class="text-slate-600 leading-relaxed">
-            {service.localContent.commonJobs}
-          </p>
-        </div>
-      </div>
-    </section>
-  )}
-
+  <!-- Service FAQ -->
   <section class="py-16 px-4 section-warm">
     <FaqSection title={`${service.name} — Common Questions`} faqs={serviceFaqs} />
   </section>
 
+  <!-- Related Services -->
   <section class="py-16 px-4">
     <div class="mx-auto max-w-4xl">
       <h2 class="font-heading text-2xl text-slate-800 text-center mb-8">
