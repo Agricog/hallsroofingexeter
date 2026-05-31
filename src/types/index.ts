@@ -49,8 +49,12 @@ export interface AreaConfig {
   slug: string
   description: string
   distanceFromBase: string
+  localContent?: {
+    propertyOverview: string
+    localFactors: string
+    workInArea: string
+  }
 }
-
 export interface FaqItem {
   question: string
   answer: string
