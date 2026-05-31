@@ -62,6 +62,33 @@ export const CLIENT: ClientConfig = {
         'Guarantee on all repair work',
       ],
       keywords: ['roof repair exeter', 'roof leak repair exeter', 'emergency roof repair exeter', 'storm damage roof exeter'],
+      localContent: {
+        propertyContext: `Exeter has one of the most varied housing stocks in the South West, which means roof repair work covers a wide range of materials and ages in a single week. Victorian and Edwardian terraces across St James, Heavitree, St Leonard's and Pennsylvania still carry their original Welsh slate, much of it now needing individual repair rather than wholesale replacement. The 1930s semis that dominate Whipton, Wonford and Pinhoe typically have clay or concrete tile roofs. Newer estate housing across the city's edges uses modern interlocking systems with their own characteristic failure points around ridges and verges.`,
+        localFactors: `Exeter sits inland of the worst coastal weather, but proximity to Dartmoor brings heavy rainfall and frequent freeze-thaw cycles that slowly fatigue tile and slate fixings. Southwesterly storms tracking up the Exe Valley regularly lift ridge tiles and dislodge slates on exposed slopes. Mature trees across the inner suburbs deposit moss and debris that retains moisture against tiles and accelerates wear. Most leaks in Exeter homes come from a small number of recurring causes: failed flashings around chimney stacks, cracked or missing ridge mortar, displaced slates on weather-facing slopes, and blocked or damaged valleys.`,
+        commonJobs: `Typical roof repair jobs across Exeter range from single slipped tiles handled in a single visit, through multi-tile storm damage repairs, to more involved work on flashings, valleys and ridges. Emergency leak response is normally same or next day — a temporary watertight cover first, then a full repair once the weather allows. Routine repairs on Victorian slate roofs often use reclaimed material to maintain the original appearance, and we carry common modern tile types on the van so most concrete and clay tile repairs are finished without a return visit.`,
+      },
+      faqs: [
+        {
+          question: 'What are the most common roof problems in Exeter homes?',
+          answer: 'The four most common issues we see are slipped or missing slates on Victorian terraces (usually after a southwesterly gale), failed lead flashings around chimney stacks on period properties, cracked ridge mortar on 1930s and 1950s housing, and blocked valleys clogged with leaves and moss from mature trees.',
+        },
+        {
+          question: 'How quickly can you fix an active roof leak?',
+          answer: 'For active leaks we aim to attend the same day, or the following morning at the latest. The first visit is to make the property watertight using temporary covers if needed. The full permanent repair is then completed within 24–48 hours, weather permitting.',
+        },
+        {
+          question: 'Can you replace just one tile or do I need a whole section redone?',
+          answer: 'Single tiles can absolutely be replaced individually — this is one of the most common repairs we do. We only recommend wider section work if the surrounding tiles or slates are also showing widespread wear or nail fatigue, in which case spot repairs would only delay a larger issue.',
+        },
+        {
+          question: 'Will the repair match the rest of my roof?',
+          answer: 'In most cases yes. For Welsh slate on Victorian and Edwardian properties we source reclaimed stock from local suppliers to match the original weathered appearance. For common concrete and clay tile profiles we match the current range as closely as possible. We will always discuss material choice before starting.',
+        },
+        {
+          question: 'Do I need scaffolding for a small repair?',
+          answer: 'Not always. Many single-tile repairs and minor flashing jobs can be carried out from a ladder using roof ladders. Anything more involved, higher than single-storey, or near a chimney usually needs scaffolding for safe access — and we include that cost in the quote upfront.',
+        },
+      ],
     },
     {
       slug: 'new-roof',
@@ -79,6 +106,37 @@ export const CLIENT: ClientConfig = {
         '20-year written guarantee',
       ],
       keywords: ['new roof exeter', 'roof replacement exeter', 'reroof exeter', 'full roof replacement cost exeter'],
+      localContent: {
+        propertyContext: `Full reroofs in Exeter are most commonly carried out on 1930s semi-detached housing across Whipton, Wonford, Heavitree and Pinhoe where original clay or early concrete tiles are reaching end of life. Victorian terraces in St James, St Leonard's and Pennsylvania often need reroofing once nail fatigue across the original Welsh slate becomes widespread — at that point individual repairs become uneconomical. Estate housing from the 1960s and 70s using early concrete interlocking tiles is now also reaching the replacement threshold. Properties within Exeter's conservation areas, including parts of Cathedral Yard and St Leonard's, require sympathetic material matching and sometimes formal consent before work can start.`,
+        localFactors: `A reroof is typically the right answer once more than 20–25% of tiles or slates have failed, when nail fatigue is widespread across original Welsh slate, or when the underlying battens and roofing felt have deteriorated to the point of failure. Exeter's combination of wet southwesterly weather, freeze-thaw cycles and summer UV gradually breaks down old bituminous felt until water starts finding its way through. By the time leaks are appearing in multiple locations, the underlying structure is usually the issue rather than the tiles themselves.`,
+        commonJobs: `A reroof on a typical Exeter semi takes 3–5 working days. The existing covering is stripped, the timber rafters and purlins are inspected and any rot is replaced, new breathable membrane is fitted over the rafters, new treated battens are installed, and the new tiles or slates are laid from the eaves up. Lead work around chimneys and valleys is renewed as part of the job. Detached houses and more complex roof shapes take 5–7 days. All reroofs include scaffolding, waste removal and a 20-year written guarantee in the quoted price.`,
+      },
+      faqs: [
+        {
+          question: 'How do I know if I need a full reroof or just repairs?',
+          answer: 'The clearest indicators are widespread slipping or missing tiles across multiple slopes, repeated leaks appearing in different locations, sagging roof lines, or visible deterioration of the felt visible from inside the loft. We provide a free inspection and will tell you honestly whether targeted repairs would still be more economical.',
+        },
+        {
+          question: 'How long does a full reroof take?',
+          answer: 'A typical Exeter semi-detached house takes 3–5 working days. Detached houses and more complex roofs take 5–7 days. We never leave a roof uncovered overnight, and we work around the weather to keep the property protected throughout.',
+        },
+        {
+          question: 'What roofing materials can I choose from?',
+          answer: 'For non-listed properties: concrete tile (widest range and most cost-effective), clay tile (more traditional appearance), natural slate (best for period properties), and synthetic slate (a more affordable slate alternative). For listed and conservation area properties material choice is usually restricted to match the original.',
+        },
+        {
+          question: 'Will I need planning permission for a new roof?',
+          answer: 'Like-for-like roof replacement is normally classed as permitted development and needs no planning permission. Conservation areas and listed buildings require consent, and any change to the roof shape, materials or addition of features like rooflights may also need approval. We handle the documentation as part of the quote.',
+        },
+        {
+          question: 'Do you need to come inside the property?',
+          answer: 'Generally no. A loft inspection at the start of the quoting process is helpful to assess the timber condition from underneath, but during the actual reroof we work entirely from outside. There is no disruption to the inside of the property.',
+        },
+        {
+          question: 'What is included in the 20-year guarantee?',
+          answer: 'The guarantee covers both materials and workmanship — any defect in either is fixed at no cost during the 20-year period. The guarantee is provided in writing on completion and is transferable if you sell the property.',
+        },
+      ],
     },
     {
       slug: 'flat-roof',
@@ -96,6 +154,33 @@ export const CLIENT: ClientConfig = {
         'Suitable for extensions, garages, dormers',
       ],
       keywords: ['flat roof exeter', 'flat roof repair exeter', 'grp flat roof exeter', 'fibreglass roof exeter'],
+      localContent: {
+        propertyContext: `Flat roofs are extremely common across Exeter housing. Rear single-storey extensions to Victorian and Edwardian terraces — particularly in St James, Heavitree and Pennsylvania — almost universally have flat roofs, originally built in bituminous felt and now often well past their design life. Dormer extensions on 1930s semis across Whipton and Wonford typically have flat tops too. Garages across every era of Exeter housing use flat roofing, and porches on 1960s and 70s estate housing add to the mix. Newer extensions are increasingly built in GRP fibreglass or EPDM rubber from the outset.`,
+        localFactors: `Flat roofs are never truly flat — they need a slight fall to drain rainwater. Many older Exeter flat roofs fail because the original installer did not get the fall right, water ponds on the surface, and the membrane breaks down under sustained moisture. Exeter's mature trees deposit debris into outlets and cause backups, particularly on extensions overshadowed by neighbouring gardens. Winter freeze-thaw cycles expand any small cracks in old felt, leading to sudden failure each spring. Internal staining on the ceiling below is often the first visible sign — by that point the roof deck above is usually saturated and replacement is the only real option.`,
+        commonJobs: `A typical Exeter flat roof job is either a full replacement of failing felt with a modern GRP fibreglass or EPDM rubber system, an overlay on an existing flat roof where the deck and structure are still sound, or a localised repair to extend the life of an otherwise serviceable surface. Most domestic flat roofs — extension, garage, dormer — take one to two days. The existing covering is stripped, the timber deck is inspected and any rotten boards replaced, then the new membrane system is installed with new flashings and outlets.`,
+      },
+      faqs: [
+        {
+          question: 'What is the difference between GRP fibreglass and EPDM rubber?',
+          answer: 'GRP is a seamless laid-in-place fibreglass laminate that cures hard — very durable, low-profile, and good around complex shapes. EPDM is a single large rubber sheet bonded to the deck — faster to install, slightly softer appearance, and excellent for simple rectangular roofs. Both systems have a 25+ year design life.',
+        },
+        {
+          question: 'Can you overlay my existing flat roof or does it have to be stripped?',
+          answer: 'If the existing deck and timbers are sound and dry, an overlay is possible and considerably cheaper than full replacement. If there is any damp in the deck, rot in the timbers, or evidence of ponding, a full strip and replace is required to avoid trapping moisture under the new membrane.',
+        },
+        {
+          question: 'How long does a new flat roof last?',
+          answer: 'Modern GRP fibreglass and EPDM rubber systems both have a design life of 25+ years and a typical real-world life closer to 30 years with no maintenance. Old-style bituminous felt — what most pre-2000s Exeter flat roofs were built with — typically lasted 15–20 years at best.',
+        },
+        {
+          question: 'Do flat roofs need regular maintenance?',
+          answer: 'Modern GRP and EPDM systems need no scheduled maintenance through their lifespan. The only sensible annual task is clearing leaves and debris from outlets and gutters to prevent water backing up over upstand flashings.',
+        },
+        {
+          question: 'Why does my flat roof leak only when it rains heavily?',
+          answer: 'The most common cause is blocked or undersized outlets — water backs up across the roof and overtops the upstand flashings around the perimeter. Second most common is hairline cracks in old felt that only let water through under sustained heavy rain. Less commonly, failed laps where felt seams have parted.',
+        },
+      ],
     },
     {
       slug: 'chimney-work',
@@ -113,6 +198,33 @@ export const CLIENT: ClientConfig = {
         'Scaffolding included in price',
       ],
       keywords: ['chimney repair exeter', 'chimney repointing exeter', 'chimney flashing exeter', 'chimney stack repair exeter'],
+      localContent: {
+        propertyContext: `Chimneys are one of the most common sources of roof leaks across Exeter. Period properties in the city centre, St James, Heavitree, Topsham and St Leonard's typically have tall multi-flue stacks with original lead flashings, often now eighty years or more old. 1930s and 1950s housing across Whipton, Wonford and Pinhoe has shorter brick stacks usually finished with cement mortar fillets at the roof junction that crack and shrink over decades. Many Exeter properties have unused chimneys that haven't been touched in years because there is no working fireplace below — but water still finds its way in through failed pointing, cracked pots, or perished flashings.`,
+        localFactors: `Chimneys take the worst of every storm because they project above the roof line. Exeter's southwesterly gales drive rain horizontally against stack faces, and water finds any small failure in pointing or flashings. Freeze-thaw cycles in winter widen cracks in mortar joints each year. Disused chimneys are particularly vulnerable — without combustion heat drying the inside, brickwork stays saturated and decays from within. A surprising number of "roof leaks" reported to us turn out to be chimney issues that have spread laterally under the surrounding tiles or slates, sometimes appearing several feet away from the actual source.`,
+        commonJobs: `Typical chimney work in Exeter falls into several categories: full lead flashing replacement around the stack at roof level (the single most common request), repointing of brickwork using lime mortar on period properties and cement mortar on newer ones, cowl or cap fitting on disused stacks to keep weather and birds out, pot replacement where the original has cracked, and partial or full stack rebuilds where decay has gone too far for repointing alone. Most chimney jobs take one to three days. Scaffolding is required for almost all chimney work for safe access, and the cost is included in the quoted price upfront.`,
+      },
+      faqs: [
+        {
+          question: 'How do I know if my chimney needs work?',
+          answer: 'Visible warning signs include cracked or missing pointing between bricks, a visible lean to the stack, damp patches on the chimney breast inside the house, daylight visible around the flashings at roof level, missing or cracked chimney pots, and vegetation growing out of the brickwork.',
+        },
+        {
+          question: 'Should I remove an unused chimney or just cap it?',
+          answer: 'Capping is much cheaper and protects the existing structure from further weather damage. Full removal only really makes sense if the stack is structurally compromised, you need the loft space, or you want to eliminate ongoing maintenance entirely. A capped chimney typically needs no further work for decades.',
+        },
+        {
+          question: 'Why does my chimney leak when it rains?',
+          answer: 'The most common cause is failed lead flashings at the roof junction — these are often the original lead from when the house was built. Second most common is saturated brickwork from failed pointing letting water track laterally. Less common but possible: cracked pots, missing cowls on disused stacks, and failed mortar caps on top of the brickwork.',
+        },
+        {
+          question: 'What is the difference between lead flashings and cement fillets?',
+          answer: 'Lead is the traditional and correct solution — it lasts decades, flexes with thermal movement, and seals properly to both the stack and the roof. Cement fillets are a cheap shortcut where mortar is applied directly between stack and tiles; they crack within a few years as the building moves, and water gets straight through. We always recommend lead.',
+        },
+        {
+          question: 'Is scaffolding always needed for chimney work?',
+          answer: 'For almost all chimney work, yes. Stack work is high, exposed, and dangerous, and proper scaffolding is the only safe access — ladders are not adequate for sustained work at chimney level. The scaffolding cost is built into the quote, not added as a surprise extra.',
+        },
+      ],
     },
     {
       slug: 'guttering',
@@ -130,6 +242,33 @@ export const CLIENT: ClientConfig = {
         'Downpipe repair and replacement',
       ],
       keywords: ['guttering exeter', 'gutter repair exeter', 'gutter replacement exeter', 'gutter cleaning exeter'],
+      localContent: {
+        propertyContext: `Guttering across Exeter spans a wide range of materials and ages. Victorian and Edwardian terraces in St James, Heavitree and Pennsylvania often still carry original cast iron, much of it now corroded from the inside out where paint has failed. 1930s onwards housing across Whipton, Wonford and Pinhoe is predominantly black uPVC, the most common material in the city by some margin. Newer estate housing uses modern seamless aluminium or higher-grade uPVC profiles. Conservation areas including Cathedral Yard and parts of St Leonard's require like-for-like cast iron replacement where original.`,
+        localFactors: `Exeter's mature tree cover is the single biggest driver of guttering issues across the city. Leaves, twigs, moss and seed pods build up faster than most homeowners realise, and blocked gutters cause water to overflow against walls and foundations. Exeter's high annual rainfall means gutter failure shows up quickly — wet patches on walls, stained render, damp inside, and saturated foundations are all common consequences of guttering left unattended for a few years. Cast iron gutters on older properties rust from the inside out once paint fails, and uPVC becomes brittle with UV exposure after 25–30 years.`,
+        commonJobs: `Typical Exeter gutter work includes routine cleaning and unblocking (the single most common request, usually annual), repair to broken brackets or split sections, like-for-like uPVC replacement on mid-twentieth-century housing, cast iron renewal on period and conservation-area properties, and fascia and soffit board replacement where rot has set in behind the gutter line. Gutter guards to prevent leaf and moss build-up are increasingly popular on properties under heavy tree cover. Most domestic gutter jobs are completed in a single day.`,
+      },
+      faqs: [
+        {
+          question: 'How often should gutters be cleaned in Exeter?',
+          answer: 'Once a year as a minimum — ideally in late autumn after leaf fall has finished. Properties under heavy tree cover, which is much of central Exeter and the inner suburbs, may need twice-yearly cleaning to keep up with debris build-up.',
+        },
+        {
+          question: 'Can damaged uPVC sections be repaired or do I need full replacement?',
+          answer: 'Individual sections can be replaced if the rest of the run is in sound condition. If the whole length is brittle, sagging, or the brackets are pulling away from the fascia, full replacement is more economical than ongoing patching. We will assess and advise honestly at the quote stage.',
+        },
+        {
+          question: 'Should I replace my cast iron with uPVC?',
+          answer: 'In conservation areas this is often not an option — cast iron must be replaced like-for-like. Outside conservation areas it is your choice: cast iron looks period-correct and lasts 80+ years if maintained, modern aluminium is a strong long-life compromise, and uPVC is the cheapest option with a 25–40 year life. We can quote all three.',
+        },
+        {
+          question: 'Will replacing my gutters affect my fascias and soffits?',
+          answer: 'Quite often yes. The fascia and soffit boards behind older guttering are commonly rotten from years of overflow, especially on north-facing slopes. We inspect the timberwork at the quoting stage and include any necessary fascia and soffit replacement in the price upfront.',
+        },
+        {
+          question: 'Are gutter guards worth fitting?',
+          answer: 'On properties under heavy tree cover — and a lot of Exeter falls into that category — gutter guards significantly reduce how often the gutters need clearing. On open properties with no overhanging trees they are usually unnecessary and not worth the cost.',
+        },
+      ],
     },
   ],
 
