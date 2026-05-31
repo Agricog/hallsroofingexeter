@@ -136,7 +136,17 @@ export const CLIENT: ClientConfig = {
   areasServed: [
     { name: 'Exeter', slug: 'exeter', description: 'Our home base — fast response times across the whole city.', distanceFromBase: '0 miles' },
     { name: 'Topsham', slug: 'topsham', description: 'Serving Topsham including the historic quayside properties.', distanceFromBase: '3 miles' },
-    { name: 'Exmouth', slug: 'exmouth', description: 'Regular work across Exmouth including coastal properties.', distanceFromBase: '10 miles' },
+    {
+      name: 'Exmouth',
+      slug: 'exmouth',
+      description: 'Regular work across Exmouth including coastal properties.',
+      distanceFromBase: '10 miles',
+      localContent: {
+        propertyOverview: `Exmouth is a town of mixed property types reflecting its history as a Victorian seaside resort and its expansion through the 20th century. The seafront and old town are dominated by Victorian and Edwardian terraced houses, many with original slate roofs that now need careful maintenance. Inland and along the estuary you'll find substantial 1930s detached and semi-detached properties with clay tile roofs, plus newer estates in areas like Brixington and Withycombe Raleigh built from the 1960s onwards using concrete tiles.`,
+        localFactors: `Exmouth's coastal position means properties take more weather than houses just a few miles inland. Salt-laden air corrodes zinc and galvanised metalwork faster than usual — gutters, lead flashings, and metal valleys all have shorter lifespans than equivalent fittings in Exeter or Crediton. Southwesterly storms drive rain horizontally against gable ends and chimneys, so wind-driven rain ingress at flashing junctions is one of the most common problems we get called out for. Older slates can lift in winter gales, particularly on properties facing the estuary and the open sea.`,
+        workInArea: `A typical month of work in Exmouth includes lead flashing replacements on chimney stacks, storm damage repairs after autumn and winter gales, slipped slate replacement on Victorian terraces, and gutter renewal on coastal-facing properties. We also do regular flat roof maintenance on the dormer extensions common on 1930s Exmouth semis. Because we're based in Exeter, we can be on site in Exmouth within 25 minutes with no extra travel charge.`,
+      },
+    },
     { name: 'Crediton', slug: 'crediton', description: 'Covering Crediton and the surrounding villages.', distanceFromBase: '8 miles' },
     { name: 'Tiverton', slug: 'tiverton', description: 'Serving Tiverton and Mid Devon.', distanceFromBase: '14 miles' },
     { name: 'Dawlish', slug: 'dawlish', description: 'Coastal roofing specialists for Dawlish properties.', distanceFromBase: '12 miles' },
