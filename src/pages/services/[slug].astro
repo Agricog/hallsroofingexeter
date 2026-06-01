@@ -25,7 +25,7 @@ const phoneClean = CLIENT.phone.replace(/\s/g, '')
 const { page, data } = getServicePageStructuredData(service)
 const relatedServices = CLIENT.services.filter((s) => s.slug !== service.slug).slice(0, 3)
 
-const serviceFaqs = [
+const serviceFaqs = service.faqs ?? [
   {
     question: `How much does ${service.name.toLowerCase()} cost in ${CLIENT.area}?`,
     answer: `${service.name} in ${CLIENT.area} typically costs between £${service.priceFrom} and £${service.priceTo}. The final price depends on the size of the job, materials required, and access to the roof. We provide free quotes so you know the exact cost before we start.`,
@@ -130,6 +130,37 @@ const serviceFaqs = [
   </section>
 
   <TrustStrip />
+
+  {service.localContent && (
+    <section class="py-16 px-4">
+      <div class="mx-auto max-w-3xl space-y-10">
+        <div>
+          <h2 class="font-heading text-2xl md:text-3xl text-slate-800 mb-4">
+            {service.name} on {CLIENT.area} Properties
+          </h2>
+          <p class="text-slate-600 leading-relaxed">
+            {service.localContent.propertyContext}
+          </p>
+        </div>
+        <div>
+          <h2 class="font-heading text-2xl md:text-3xl text-slate-800 mb-4">
+            Local Conditions and Common Causes
+          </h2>
+          <p class="text-slate-600 leading-relaxed">
+            {service.localContent.localFactors}
+          </p>
+        </div>
+        <div>
+          <h2 class="font-heading text-2xl md:text-3xl text-slate-800 mb-4">
+            Typical {service.name} Jobs in {CLIENT.area}
+          </h2>
+          <p class="text-slate-600 leading-relaxed">
+            {service.localContent.commonJobs}
+          </p>
+        </div>
+      </div>
+    </section>
+  )}
 
   <!-- Service FAQ -->
   <section class="py-16 px-4 section-warm">
