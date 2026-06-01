@@ -12,6 +12,7 @@ import {
 import type { SeoPageData } from '../types'
 import BaseLayout from '../layouts/BaseLayout.astro'
 import CtaSection from '../components/CtaSection.astro'
+import FaqSection from '../components/FaqSection.astro'
 import AiChatIntake from '../components/react/AiChatIntake'
 
 const BASE_URL = `https://${CLIENT.domain}`
@@ -26,24 +27,9 @@ const page: SeoPageData = {
   keywords: [
     `emergency roofer ${CLIENT.area.toLowerCase()}`,
     `emergency roof repair ${CLIENT.area.toLowerCase()}`,
-  ],
-}
-
-const structuredData = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    getLocalBusinessSchema(),
-    getWebSiteSchema(),
-    {
-      '@type': 'WebPage',
-      url: page.canonical,
-      name: page.title,
-      description: page.description,
-    },
-    getBreadcrumbSchema([
-      { name: 'Home', url: BASE_URL },
-      { name: 'Emergency', url: page.canonical },
-    ]),
+    `leaking roof ${CLIENT.area.toLowerCase()}`,
+    `storm damage roof ${CLIENT.area.toLowerCase()}`,
+    `same day roofer ${CLIENT.area.toLowerCase()}`,
   ],
 }
 
@@ -71,6 +57,101 @@ const TRUST = [
   { icon: 'lucide:clock', text: 'Same-day attendance' },
   { icon: 'lucide:shield-check', text: 'No inflated call-out fees' },
 ]
+
+const EMERGENCY_TYPES = [
+  {
+    title: 'Active roof leaks and water ingress',
+    description: `Water coming through the ceiling during heavy rain is the most common emergency call we get. Causes range from cracked tiles and failed pointing to blocked gutters overflowing into the roof structure. We trace the leak to source, stop the water entry, and protect interior plasterwork while a permanent repair is scheduled.`,
+    link: '/services/roof-repair',
+    linkLabel: 'Roof repair',
+  },
+  {
+    title: 'Storm damage and high winds',
+    description: `Southwesterly gales coming up the Exe Valley regularly lift ridge tiles, displace slates, and damage flashings. Properties on exposed higher ground around St Leonard's, Pennsylvania, and Mount Pleasant are most at risk. We attend with tarpaulins to cover affected areas, secure loose materials, and document damage for insurance claims if needed.`,
+    link: '/services/roof-repair',
+    linkLabel: 'Roof repair',
+  },
+  {
+    title: 'Missing or slipped tiles',
+    description: `Single slipped or missing tiles after high winds expose the felt or batten underneath, which will fail within days if rain continues. Common on Victorian terraces across Heavitree, St James, and Whipton where original slate is increasingly brittle. We replace individual tiles or batch-match where original materials are still available.`,
+    link: '/services/roof-repair',
+    linkLabel: 'Roof repair',
+  },
+  {
+    title: 'Chimney damage and lead flashing failure',
+    description: `Cracked chimney pots, loose stack masonry, and failed lead flashings are routine emergencies on Exeter's older housing stock. A failed lead apron will channel water directly into the loft. We secure loose pots, install temporary flashings, and quote separately for permanent rebuild or re-lead work.`,
+    link: '/services/chimney-work',
+    linkLabel: 'Chimney work',
+  },
+  {
+    title: 'Flat roof failure',
+    description: `Felt and EPDM flat roofs on Victorian rear extensions, dormers, and garage roofs typically fail at the seams or upstands. Sudden water ingress through a flat roof usually means a split has opened up. We patch the failure point with self-adhesive flashings or compatible repair materials to restore watertightness.`,
+    link: '/services/flat-roof',
+    linkLabel: 'Flat roofing',
+  },
+  {
+    title: 'Fallen branches and impact damage',
+    description: `Exeter's mature tree cover means storm-fallen branches regularly puncture roofs in conservation areas around Pennsylvania, Heavitree, and the Cathedral quarter. We remove debris safely, assess the structural extent, and tarp the affected area until a permanent repair can be scoped and completed.`,
+    link: '/services/roof-repair',
+    linkLabel: 'Roof repair',
+  },
+]
+
+const FAQS = [
+  {
+    question: 'How quickly can you attend a roof emergency?',
+    answer: `For genuine emergencies — active leaks, storm damage, immediate risk — we aim to attend the same day across central Exeter (EX1, EX2, EX4) and typically reach surrounding areas like Topsham, Exmouth, and Crediton within a few hours. Response time depends on current workload and weather. Call ${CLIENT.phone} to confirm a realistic ETA for your address.`,
+  },
+  {
+    question: 'Do you charge extra for emergency call-outs?',
+    answer: `No. Our emergency rates are the same as our standard rates. An emergency tarpaulin to make your roof watertight typically costs £150–£300 depending on access and the area covered. The permanent repair is quoted separately at our normal pricing. We do not inflate prices because a customer is under pressure.`,
+  },
+  {
+    question: 'What about out-of-hours or overnight emergencies?',
+    answer: `We attend during daylight hours wherever possible. Overnight work is rarely safe on a roof, so for emergencies after dark we focus on telephone advice — isolating electrics, containing leaks internally — and arrange to attend at first light. If there is immediate structural danger to people, we will advise on contacting the fire service for emergency make-safe.`,
+  },
+  {
+    question: 'Will you do a temporary fix or a permanent repair on the day?',
+    answer: `We make the roof watertight on the first visit using tarpaulins or temporary flashings — that is the priority. A permanent repair usually requires properly matched materials, dry conditions, and a longer working window, so we quote that separately and schedule it for the next available slot. The temporary work prevents further damage while the permanent repair is arranged.`,
+  },
+  {
+    question: 'Do you handle storm damage and insurance claims?',
+    answer: `Yes. After major storms we provide photographs and a written report documenting the damage and the repair work carried out, which most insurers require for a claim. We can liaise with loss adjusters where needed. Insurance work is quoted at our standard rates regardless of the claim value.`,
+  },
+  {
+    question: 'Are you insured for emergency roof work?',
+    answer: `Yes. We carry £${CLIENT.insuranceAmount} public liability insurance covering all work, including emergency attendance. Documentation can be provided on request before work begins.`,
+  },
+]
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    getLocalBusinessSchema(),
+    getWebSiteSchema(),
+    {
+      '@type': 'WebPage',
+      url: page.canonical,
+      name: page.title,
+      description: page.description,
+    },
+    getBreadcrumbSchema([
+      { name: 'Home', url: BASE_URL },
+      { name: 'Emergency', url: page.canonical },
+    ]),
+    {
+      '@type': 'FAQPage',
+      mainEntity: FAQS.map((faq) => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.answer,
+        },
+      })),
+    },
+  ],
+}
 ---
 
 <BaseLayout page={page} structuredData={structuredData}>
@@ -86,15 +167,12 @@ const TRUST = [
             <Icon name="lucide:alert-triangle" size={14} />
             Emergency Response
           </div>
-
           <h1 class="font-heading text-[clamp(28px,5vw,48px)] leading-[1.08] text-white mb-5">
             Emergency roof repair in <span class="text-amber-300">{CLIENT.area}</span>
           </h1>
-
           <p class="text-lg text-white/80 leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
             Leaking roof? Storm damage? {CLIENT.businessName} provides same-day emergency attendance across {CLIENT.area} and {CLIENT.region}. We carry tarpaulins and repair materials on the van — your roof will be watertight today.
           </p>
-
           <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
             <a
               href={`tel:${phoneClean}`}
@@ -105,7 +183,6 @@ const TRUST = [
               Call Now: {CLIENT.phone}
             </a>
           </div>
-
           <div class="flex flex-wrap gap-5 justify-center lg:justify-start text-white/70">
             {TRUST.map((item) => (
               <div class="flex items-center gap-2 text-sm">
@@ -115,7 +192,6 @@ const TRUST = [
             ))}
           </div>
         </div>
-
         <div id="quote" class="flex-1 flex justify-center w-full max-w-[440px]">
           <AiChatIntake client:visible />
         </div>
@@ -129,7 +205,6 @@ const TRUST = [
       <h2 class="font-heading text-2xl md:text-[32px] text-slate-800 text-center mb-10">
         Got a roof emergency? Here is what to do.
       </h2>
-
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         {STEPS.map((item) => (
           <div class="card p-6">
@@ -166,6 +241,79 @@ const TRUST = [
         Call {CLIENT.phone}
       </a>
     </div>
+  </section>
+
+  <!-- Emergency Types -->
+  <section class="py-16 px-4">
+    <div class="mx-auto max-w-6xl">
+      <div class="text-center mb-10">
+        <h2 class="font-heading text-2xl md:text-[32px] text-slate-800 mb-3">
+          Common roof emergencies we handle
+        </h2>
+        <p class="text-slate-500 max-w-2xl mx-auto">
+          The most frequent emergency call-outs across {CLIENT.area} and the surrounding area. Every one of these we make safe and watertight on the first visit.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {EMERGENCY_TYPES.map((item) => (
+          <div class="card p-6 flex flex-col">
+            <h3 class="font-heading text-lg text-slate-800 mb-3">{item.title}</h3>
+            <p class="text-sm text-slate-600 leading-relaxed mb-5 flex-1">
+              {item.description}
+            </p>
+            <a
+              href={item.link}
+              class="text-sm font-semibold inline-flex items-center gap-1.5 no-underline self-start"
+              style="color: var(--color-brand);"
+            >
+              {item.linkLabel}
+              <Icon name="lucide:arrow-right" size={14} />
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Local Emergency Context -->
+  <section class="py-16 px-4 section-warm">
+    <div class="mx-auto max-w-3xl space-y-10">
+      <h2 class="font-heading text-2xl md:text-[32px] text-slate-800 text-center mb-2">
+        Roof emergencies in {CLIENT.area}
+      </h2>
+
+      <div>
+        <h3 class="font-heading text-lg text-slate-800 mb-3">
+          When emergencies happen
+        </h3>
+        <p class="text-slate-600 leading-relaxed">
+          Roof emergencies in {CLIENT.area} cluster around two periods. Autumn and winter storms — particularly southwesterly fronts coming up the Exe estuary — are the main cause, with the worst damage typically arriving between November and February. The second cluster is the freeze-thaw transition in late winter and early spring, where water that has worked into hairline tile cracks expands and fractures the material. Heavy summer downpours, while less frequent, can overwhelm gutter systems and force water back under the eaves of properties with blocked rainwater goods.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-heading text-lg text-slate-800 mb-3">
+          What we see on different Exeter property types
+        </h3>
+        <p class="text-slate-600 leading-relaxed">
+          Different parts of {CLIENT.area} present different emergency patterns. Victorian and Edwardian terraces in St James, Heavitree, St Leonard's, and Mount Pleasant most often see slipped Welsh slates, failed pointing on chimney stacks, and lead flashing failure where rear extensions meet the main roof. The 1930s housing stock in Wonford, Whipton, and Pinhoe typically presents clay or concrete tile slippage and ridge tile displacement after high winds. Newer estates in Cranbrook, Marsh Barton, and outer Pinhoe see fewer storm-related emergencies but occasional construction-period defects — typically poorly bedded ridge tiles or flashings that loosen in the first few years. Period properties in the Cathedral and Quay conservation areas have the most complex emergencies because matching original materials is essential.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-heading text-lg text-slate-800 mb-3">
+          Our coverage and response approach
+        </h3>
+        <p class="text-slate-600 leading-relaxed">
+          We operate van-based across {CLIENT.area} and the surrounding area. For genuine emergencies — active leaks, storm damage, structural risk — we prioritise same-day attendance to the central postcodes (EX1, EX2, EX4) and typically reach properties in Topsham, Exmouth, Crediton, and Cranbrook within a few hours. Our vans carry tarpaulins, common slate and tile types, self-adhesive flashings, and the tools needed to make a roof watertight in one visit. Where a permanent repair is not possible on the day — for instance, where bespoke materials need to be sourced — we make the affected area secure and schedule the return visit promptly.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section class="py-16 px-4">
+    <FaqSection title="Emergency Roof Repair — Common Questions" faqs={FAQS} />
   </section>
 
   <CtaSection
