@@ -10,7 +10,7 @@ export default defineConfig({
   trailingSlash: 'never',
   output: 'static',
   build: {
-    format: 'directory',
+    format: 'file',
     inlineStylesheets: 'auto',
   },
   prefetch: {
