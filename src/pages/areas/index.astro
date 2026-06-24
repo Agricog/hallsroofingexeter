@@ -10,18 +10,15 @@ import BaseLayout from '../../layouts/BaseLayout.astro'
 import Breadcrumb from '../../components/Breadcrumb.astro'
 import CtaSection from '../../components/CtaSection.astro'
 import AiChatIntake from '../../components/react/AiChatIntake'
-
 const BASE_URL = `https://${CLIENT.domain}`
-
 const page: SeoPageData = {
   title: `Areas We Cover | ${CLIENT.businessName} | Roofers ${CLIENT.area}`,
-  description: `${CLIENT.businessName} provides roofing services across ${CLIENT.area} and ${CLIENT.region}. ${CLIENT.areasServed.map((a) => a.name).join(', ')}.`,
+  description: `Get a roofing quote anywhere across ${CLIENT.area} and ${CLIENT.region}: ${CLIENT.areasServed.map((a) => a.name).join(', ')}. Free, no obligation. ${CLIENT.businessName}.`,
   canonical: `${BASE_URL}/areas`,
   ogImage: `${BASE_URL}/og-image.jpg`,
   type: 'website',
   keywords: [`roofer ${CLIENT.area.toLowerCase()}`, `roofing ${CLIENT.region.toLowerCase()}`],
 }
-
 const structuredData = buildStructuredData(page, [
   getBreadcrumbSchema([
     { name: 'Home', url: BASE_URL },
@@ -29,10 +26,8 @@ const structuredData = buildStructuredData(page, [
   ]),
 ])
 ---
-
 <BaseLayout page={page} structuredData={structuredData}>
   <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Areas' }]} />
-
   <section class="py-12 md:py-20 px-4">
     <div class="mx-auto max-w-4xl">
       <div class="text-center mb-12">
@@ -40,10 +35,9 @@ const structuredData = buildStructuredData(page, [
           Areas we cover across <span style="color: var(--color-brand);">{CLIENT.region}</span>
         </h1>
         <p class="text-lg text-slate-500 max-w-2xl mx-auto">
-          {CLIENT.businessName} is based in {CLIENT.area} and provides roofing services across the whole of {CLIENT.region}. Click any area for local pricing and availability.
+          {CLIENT.businessName} covers {CLIENT.area} and the whole of {CLIENT.region}. Describe your job in the chat and get a free quote with a same-day callback from a local roofer. Click any area for local information.
         </p>
       </div>
-
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {CLIENT.areasServed.map((area) => (
           <a
@@ -68,7 +62,6 @@ const structuredData = buildStructuredData(page, [
       </div>
     </div>
   </section>
-
   <!-- Chat section -->
   <section class="py-12 px-4 section-warm">
     <div class="mx-auto max-w-6xl">
@@ -87,6 +80,5 @@ const structuredData = buildStructuredData(page, [
       </div>
     </div>
   </section>
-
   <CtaSection />
 </BaseLayout>
