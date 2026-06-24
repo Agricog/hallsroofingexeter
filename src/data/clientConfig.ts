@@ -24,24 +24,24 @@ export const CLIENT: ClientConfig = {
 
   trustSignals: [
     {
-      icon: 'shield-check',
-      title: 'Fully Insured',
-      description: '£5m public liability insurance on every job',
-    },
-    {
       icon: 'clock',
-      title: 'Same-Day Response',
-      description: 'Every enquiry answered within hours, not days',
-    },
-    {
-      icon: 'map-pin',
-      title: 'Local to Exeter',
-      description: 'Serving the area for over 15 years',
+      title: 'Same-Day Callback',
+      description: 'Describe your job and a local roofer calls you back the same day — no waiting days for a reply.',
     },
     {
       icon: 'badge-check',
-      title: 'All Work Guaranteed',
-      description: 'Written guarantee on every job we complete',
+      title: 'Free, No-Obligation Quotes',
+      description: 'Get an indicative price in seconds and a full quote at no cost. No pressure to go ahead.',
+    },
+    {
+      icon: 'map-pin',
+      title: 'Local to Exeter & East Devon',
+      description: 'We cover Exeter and the surrounding East Devon area, matching you with a roofer near you.',
+    },
+    {
+      icon: 'shield-check',
+      title: 'No Call-Out Fee',
+      description: 'Getting a quote is free — you only pay the roofer if you decide to go ahead with the work.',
     },
   ],
 
@@ -410,43 +410,43 @@ export const CLIENT: ClientConfig = {
   faqs: [
     {
       question: 'How much does a new roof cost in Exeter?',
-      answer: 'A full reroof on a typical semi-detached house in Exeter costs between £5,000 and £8,000. Detached homes range from £7,000 to £12,000 depending on size, pitch, and materials. We provide free no-obligation quotes so you know the exact cost before any work starts.',
+      answer: 'A full reroof on a typical semi-detached house in Exeter usually costs between £5,000 and £8,000, and detached homes range from £7,000 to £12,000 depending on size, pitch, and materials. Describe your job in the chat for an instant indicative price, then get a free, no-obligation quote from a local roofer.',
     },
     {
-      question: 'How quickly can you come out for an emergency?',
-      answer: 'For genuine emergencies like active leaks or storm damage, we aim to attend the same day or the following morning. We carry emergency tarpaulins and common repair materials on the van so we can make the property watertight immediately.',
+      question: 'How quickly can I get an emergency callback?',
+      answer: 'For genuine emergencies like active leaks or storm damage, describe the problem in the chat and you will get a same-day callback from a local roofer who can attend quickly and make the property watertight.',
     },
     {
-      question: 'Do you offer a guarantee on your work?',
-      answer: 'Yes. Every job comes with a written guarantee. Repairs are guaranteed for 12 months, reroofs for 20 years, and flat roofs for the lifetime of the membrane system (typically 25+ years). The guarantee covers both materials and workmanship.',
+      question: 'Is the work guaranteed?',
+      answer: 'Any guarantee is provided by the roofer who carries out your job — typically 12 months on repairs and longer on reroofs and flat roofs. We recommend confirming the guarantee terms in writing before you agree to the work.',
     },
     {
-      question: 'Are you insured?',
-      answer: 'Yes, we carry £5 million public liability insurance on every job. We can provide a copy of our insurance certificate on request before any work begins.',
+      question: 'Is the roofer insured?',
+      answer: 'The roofer who provides your quote carries their own public liability insurance. We always recommend asking to see a copy and confirming the cover before agreeing to any work.',
     },
     {
       question: 'Do I need scaffolding for roof work?',
-      answer: 'Most roof work above single-storey height requires scaffolding for safety. We arrange all scaffolding as part of your quote — the cost is included, not added as a surprise extra. For smaller repairs at lower heights, we can often use ladders and roof access equipment.',
+      answer: 'Most roof work above single-storey height needs scaffolding for safety, and a good roofer will include it in the quote rather than adding it as a surprise extra. For smaller repairs at lower heights, ladders and roof-access equipment are often enough.',
     },
     {
       question: 'What areas do you cover?',
-      answer: 'We cover Exeter and the whole of East Devon including Exmouth, Topsham, Crediton, Tiverton, Dawlish, Honiton, Sidmouth, Cullompton, and surrounding villages. If you are unsure whether we cover your area, just ask — we probably do.',
+      answer: 'We cover Exeter and the whole of East Devon including Exmouth, Topsham, Crediton, Tiverton, Dawlish, Honiton, Sidmouth, Cullompton, and the surrounding villages. If you are not sure whether your area is covered, just ask in the chat.',
     },
     {
       question: 'How long does a full reroof take?',
-      answer: 'A typical semi-detached house takes 3–5 working days. Detached homes and more complex roofs may take 5–7 days. Weather can extend timelines, but we always keep you informed and never leave a roof uncovered overnight.',
+      answer: 'A typical semi-detached house takes around 3–5 working days, and detached or more complex roofs 5–7 days. Weather can extend timelines — the roofer will keep you informed and will not leave a roof uncovered overnight.',
     },
     {
-      question: 'Can you match my existing tiles?',
-      answer: 'In most cases, yes. We stock a wide range of common tile and slate types and have suppliers who specialise in matching discontinued lines. If an exact match is not possible, we will always discuss alternatives with you before proceeding.',
+      question: 'Can my existing tiles be matched?',
+      answer: 'In most cases, yes. Common tile and slate types can be matched, and suppliers can often source discontinued lines. The roofer will discuss material options with you before starting.',
     },
     {
       question: 'Do I need planning permission for a new roof?',
-      answer: 'In most cases, no. Replacing a roof with similar materials is classed as permitted development. However, if you live in a conservation area or listed building, additional permissions may be required. We can advise you on this during the quoting process.',
+      answer: 'In most cases, no — replacing a roof with similar materials is usually permitted development. Conservation areas and listed buildings may need consent. The roofer can advise on this when they quote.',
     },
     {
       question: 'How do I know if my roof needs replacing or just repairing?',
-      answer: 'We provide a free roof inspection with every enquiry. We will give you an honest assessment of whether a repair is sufficient or whether a full replacement makes more financial sense. We never recommend unnecessary work.',
+      answer: 'Describe the symptoms in the chat and you will get a callback from a roofer who can assess whether a repair is enough or a full replacement makes more financial sense — with an honest recommendation and no pressure.',
     },
   ],
 
