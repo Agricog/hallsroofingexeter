@@ -1,22 +1,18 @@
 // ============================================================
 // CallFirst Client Template — AI Chat Intake
-// React island. Hydrates only when scrolled into view.
+// Core conversion widget — connects to the same-origin proxy
+// (/api/chat, /api/lead). The proxy injects the API key and
+// client id server-side, so NO secrets live in the browser.
 // ============================================================
 
 import { useState, useRef, useEffect, useCallback } from 'react'
-import { CLIENT } from '../../data/clientConfig'
+import { CLIENT } from '@/data/clientConfig'
 
 interface Message {
   role: 'assistant' | 'user'
   content: string
   timestamp: string
 }
-
-// Astro requires PUBLIC_ prefix for client-exposed env vars.
-// Set these in Cloudflare Pages → Settings → Environment Variables.
-const API_URL = import.meta.env.PUBLIC_API_URL || ''
-const API_KEY = import.meta.env.PUBLIC_API_KEY || ''
-const CLIENT_ID = import.meta.env.PUBLIC_CLIENT_ID || ''
 
 export default function AiChatIntake(): JSX.Element {
   const [messages, setMessages] = useState<Message[]>([])
@@ -45,21 +41,19 @@ export default function AiChatIntake(): JSX.Element {
     }
   }, [messages, isLoading])
 
-  // Submit lead data to the API
+  // Submit lead data via the same-origin proxy
   const submitLead = useCallback(
     async (leadData: Record<string, string>, conversationLog: Message[]) => {
       if (leadSubmittedRef.current) return
       leadSubmittedRef.current = true
 
       try {
-        const res = await fetch(`${API_URL}/api/lead`, {
+        const res = await fetch('/api/lead', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${API_KEY}`,
           },
           body: JSON.stringify({
-            clientId: CLIENT_ID,
             lead: leadData,
             conversationLog: conversationLog.map((m) => ({
               role: m.role,
@@ -100,14 +94,12 @@ export default function AiChatIntake(): JSX.Element {
       setIsLoading(true)
 
       try {
-        const res = await fetch(`${API_URL}/api/chat`, {
+        const res = await fetch('/api/chat', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${API_KEY}`,
           },
           body: JSON.stringify({
-            clientId: CLIENT_ID,
             messages: updatedMessages.map((m) => ({
               role: m.role,
               content: m.content,
@@ -179,7 +171,7 @@ export default function AiChatIntake(): JSX.Element {
           <div className="font-semibold text-sm">{CLIENT.businessName}</div>
           <div className="text-xs text-slate-400 flex items-center gap-1.5">
             <span className="w-2 h-2 rounded-full bg-green-400 inline-block" />
-            Online now
+            AI assistant
           </div>
         </div>
       </div>
@@ -262,7 +254,8 @@ export default function AiChatIntake(): JSX.Element {
           </button>
         </div>
         <p className="text-[11px] text-slate-400 text-center mt-2 leading-snug">
-          By sending a message, you agree to your details being shared with a local roofer to provide your quote. See our{' '}
+          By sending a message, you agree to your details being shared with a local
+          roofer to provide your quote. See our{' '}
           <a href="/privacy" className="underline hover:text-slate-600">Privacy Policy</a>.
         </p>
       </div>
