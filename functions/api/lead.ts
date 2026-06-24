@@ -1,17 +1,21 @@
 // ============================================================
 // Cloudflare Pages Function — Lead proxy
-// Holds the API key server-side so it never reaches the browser.
-// Forwards the request body verbatim to the upstream lead API.
+// Same model as chat.ts: API_URL, API_KEY and CLIENT_ID live
+// server-side. The browser sends only the lead data and the
+// conversation log; this function injects the credentials and
+// client id, then forwards server-to-server to the upstream API.
 //
-// Set these in Cloudflare Pages → Settings → Environment Variables
-// (NO "PUBLIC_" prefix — these must stay server-side):
-//   API_URL   the upstream API base, e.g. https://api.callfirst.co.uk
-//   API_KEY   the secret bearer token
+// Set these in Cloudflare Pages → Settings → Variables and secrets
+// (NO "PUBLIC_" / "VITE_" prefix):
+//   API_URL     upstream base, e.g. https://callfirst-api-production.up.railway.app
+//   API_KEY     the secret bearer token   (mark as Secret)
+//   CLIENT_ID   this client's id          (mark as Secret)
 // ============================================================
 
 interface Env {
   API_URL: string
   API_KEY: string
+  CLIENT_ID: string
 }
 
 export async function onRequestPost(context: {
@@ -20,14 +24,29 @@ export async function onRequestPost(context: {
 }): Promise<Response> {
   const { request, env } = context
 
-  if (!env.API_URL || !env.API_KEY) {
-    return new Response(JSON.stringify({ error: 'Server not configured' }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' },
-    })
+  if (!env.API_URL || !env.API_KEY || !env.CLIENT_ID) {
+    return new Response(
+      JSON.stringify({ error: 'Server not configured' }),
+      { status: 500, headers: { 'Content-Type': 'application/json' } }
+    )
   }
 
-  const body = await request.text()
+  let incoming: Record<string, unknown> = {}
+  try {
+    incoming = await request.json()
+  } catch {
+    return new Response(
+      JSON.stringify({ error: 'Invalid request body' }),
+      { status: 400, headers: { 'Content-Type': 'application/json' } }
+    )
+  }
+
+  // Inject clientId server-side; forward lead + conversationLog as sent.
+  const payload = {
+    clientId: env.CLIENT_ID,
+    lead: incoming.lead ?? {},
+    conversationLog: incoming.conversationLog ?? [],
+  }
 
   const upstream = await fetch(`${env.API_URL}/api/lead`, {
     method: 'POST',
@@ -35,10 +54,11 @@ export async function onRequestPost(context: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${env.API_KEY}`,
     },
-    body,
+    body: JSON.stringify(payload),
   })
 
-  return new Response(upstream.body, {
+  const text = await upstream.text()
+  return new Response(text, {
     status: upstream.status,
     headers: { 'Content-Type': 'application/json' },
   })
