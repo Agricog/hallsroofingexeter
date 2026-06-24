@@ -9,7 +9,7 @@ const BASE_URL = `https://${CLIENT.domain}`
 
 const page: SeoPageData = {
   title: `Privacy Policy | ${CLIENT.businessName}`,
-  description: `Privacy policy for ${CLIENT.businessName}. How we collect, use, and protect your personal information.`,
+  description: `Privacy policy for ${CLIENT.businessName}. How we collect, use, and share your personal information.`,
   canonical: `${BASE_URL}/privacy`,
   ogImage: `${BASE_URL}/og-image.jpg`,
   type: 'website',
@@ -40,38 +40,44 @@ const lastUpdated = new Date().toLocaleDateString('en-GB', { month: 'long', year
 
         <h2 class="font-heading text-2xl text-slate-800 !mt-10 mb-4">Who We Are</h2>
         <p>
-          {CLIENT.businessName} is a roofing contractor serving {CLIENT.area} and {CLIENT.region}. This privacy policy explains how we collect, use, and protect your personal information when you use our website ({CLIENT.domain}) or contact us for a quote.
+          {CLIENT.businessName} provides a roofing quote service for {CLIENT.area} and {CLIENT.region}: we help you get a roofing quote from a local roofer. This privacy policy explains how we collect, use, and share your personal information when you use our website ({CLIENT.domain}) or contact us for a quote. We do not carry out roofing work ourselves.
         </p>
 
         <h2 class="font-heading text-2xl text-slate-800 !mt-10 mb-4">What We Collect</h2>
         <p>
-          When you use our website chat or contact us, we may collect your name, telephone number, email address, property address, and details about the roofing work you need. We collect this information so we can provide you with a quote and arrange the work.
+          When you use our website chat or contact us, we may collect your name, telephone number, email address, property address, and details about the roofing work you need. We collect this so we can give you an estimate and connect you with a local roofer who can provide a quote.
         </p>
 
         <h2 class="font-heading text-2xl text-slate-800 !mt-10 mb-4">How We Use Your Information</h2>
         <p>We use your personal information to:</p>
         <ul class="list-disc pl-6 space-y-1">
-          <li>Respond to your enquiry and provide a quote</li>
-          <li>Arrange and carry out roofing work</li>
-          <li>Send you a follow-up message after your enquiry</li>
-          <li>Request a review after completed work</li>
-          <li>Comply with legal and insurance requirements</li>
+          <li>Respond to your enquiry and give you an indicative estimate</li>
+          <li>Share your details with a local roofer so they can contact you with a quote</li>
+          <li>Send you a follow-up message about your enquiry</li>
+          <li>Comply with our legal obligations</li>
         </ul>
-        <p>We will never sell, rent, or share your personal information with third parties for marketing purposes.</p>
+
+        <h2 class="font-heading text-2xl text-slate-800 !mt-10 mb-4">Sharing Your Information</h2>
+        <p>
+          To provide our service, we share the details you give us with a local roofer in your area so they can contact you with a quote. This sharing is necessary to provide the quote you have asked for. The roofer is a separate business and will handle your information under their own privacy policy once it has been shared with them.
+        </p>
+        <p>
+          We do not sell your information for unrelated marketing. Other than the roofer providing your quote, we only share your information with the service providers we use to operate this website and contact you — for example, our hosting and messaging providers — who act on our instructions.
+        </p>
 
         <h2 class="font-heading text-2xl text-slate-800 !mt-10 mb-4">AI Chat</h2>
         <p>
-          Our website uses an AI-powered chat assistant to help you get a quick quote. The conversation is processed by our systems to understand your roofing needs and provide an estimate. Your conversation and contact details are stored securely so we can follow up with you. The chat is not monitored in real time by a person.
+          Our website uses an AI-powered chat assistant to help you get a quick estimate. The conversation is processed to understand your roofing needs and produce an estimate, and may be handled by third-party AI service providers acting on our behalf. Your conversation and contact details are stored securely so we can follow up with you and pass your quote request to a roofer. The chat is not monitored in real time by a person.
         </p>
 
         <h2 class="font-heading text-2xl text-slate-800 !mt-10 mb-4">SMS and WhatsApp Messages</h2>
         <p>
-          When you provide your phone number, we may send you a confirmation message to let you know we have received your enquiry. We may also send a follow-up message if we have not been able to reach you, and a review request after completed work. You can opt out of messages at any time by replying STOP.
+          When you provide your phone number, we may send you a confirmation message to let you know we have received your enquiry. We may also send a follow-up message if we have not been able to reach you. You can opt out of messages at any time by replying STOP.
         </p>
 
         <h2 class="font-heading text-2xl text-slate-800 !mt-10 mb-4">How We Store Your Data</h2>
         <p>
-          Your data is stored securely on encrypted servers. We retain your contact details and job information for up to 6 years to comply with HMRC and insurance requirements. You can request deletion of your data at any time by contacting us.
+          Your data is stored securely on encrypted servers. We keep your contact details and enquiry information only for as long as needed to provide the service and to meet our legal obligations, after which it is deleted. You can request deletion of your data at any time by contacting us.
         </p>
 
         <h2 class="font-heading text-2xl text-slate-800 !mt-10 mb-4">Your Rights</h2>
@@ -81,7 +87,7 @@ const lastUpdated = new Date().toLocaleDateString('en-GB', { month: 'long', year
 
         <h2 class="font-heading text-2xl text-slate-800 !mt-10 mb-4">Cookies</h2>
         <p>
-          Our website uses essential cookies only to ensure the site functions correctly. We do not use tracking cookies, analytics cookies, or advertising cookies.
+          This website uses cookies that are necessary for it to function. We also record basic information about how visitors use the site, such as which links and buttons are clicked, to help us improve it.
         </p>
 
         <h2 class="font-heading text-2xl text-slate-800 !mt-10 mb-4">Contact</h2>
