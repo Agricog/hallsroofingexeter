@@ -261,6 +261,10 @@ export default function AiChatIntake(): JSX.Element {
             </svg>
           </button>
         </div>
+        <p className="text-[11px] text-slate-400 text-center mt-2 leading-snug">
+          By sending a message, you agree to your details being shared with a local roofer to provide your quote. See our{' '}
+          <a href="/privacy" className="underline hover:text-slate-600">Privacy Policy</a>.
+        </p>
       </div>
     </div>
   )
