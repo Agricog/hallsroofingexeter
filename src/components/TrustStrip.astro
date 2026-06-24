@@ -1,33 +1,29 @@
 ---
 import { Icon } from 'astro-icon/components'
-import { CLIENT } from '../data/clientConfig'
-
-const yearsInBusiness = new Date().getFullYear() - CLIENT.yearEstablished
 
 const TRUST_ITEMS = [
   {
-    icon: 'lucide:star',
-    value: `${CLIENT.googleReviewRating}/5`,
-    label: `${CLIENT.googleReviewCount} Google Reviews`,
+    icon: 'lucide:map-pin',
+    value: 'Local',
+    label: 'Exeter & East Devon',
   },
   {
-    icon: 'lucide:shield-check',
-    value: `£${CLIENT.insuranceAmount}`,
-    label: 'Public Liability',
-  },
-  {
-    icon: 'lucide:award',
-    value: `${yearsInBusiness} Years`,
-    label: `Established ${CLIENT.yearEstablished}`,
+    icon: 'lucide:check-circle',
+    value: 'Free Quotes',
+    label: 'No obligation',
   },
   {
     icon: 'lucide:clock',
     value: 'Same Day',
-    label: 'Response Guaranteed',
+    label: 'Callback',
+  },
+  {
+    icon: 'lucide:home',
+    value: 'All Roof Types',
+    label: 'Repairs & reroofs',
   },
 ]
 ---
-
 <div class="bg-white border-y border-slate-100">
   <div class="mx-auto max-w-6xl px-4 py-5">
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
