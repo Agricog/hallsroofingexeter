@@ -15,12 +15,11 @@ import AiChatIntake from '../components/react/AiChatIntake'
 
 const { page, data } = getHomepageStructuredData()
 const phoneClean = CLIENT.phone.replace(/\s/g, '')
-const yearsInBusiness = new Date().getFullYear() - CLIENT.yearEstablished
 
 const TRUST_ITEMS = [
-  { icon: 'lucide:star', text: `${CLIENT.googleReviewRating}/5 (${CLIENT.googleReviewCount} reviews)` },
-  { icon: 'lucide:shield-check', text: `£${CLIENT.insuranceAmount} insured` },
-  { icon: 'lucide:check-circle', text: 'All work guaranteed' },
+  { icon: 'lucide:check-circle', text: 'Free, no-obligation quotes' },
+  { icon: 'lucide:clock', text: 'Same-day callback' },
+  { icon: 'lucide:map-pin', text: 'Local to Exeter & East Devon' },
 ]
 
 const HOW_IT_WORKS = [
@@ -37,8 +36,9 @@ const HOW_IT_WORKS = [
   },
   {
     step: '3',
-    title: `${CLIENT.ownerName} calls you back`,
-    description: `Pick a time that suits you. ${CLIENT.ownerName} calls with a detailed quote. No chasing, no missed calls — just a confirmed callback.`,
+    title: 'Get your callback',
+    description:
+      'Pick a time that suits you and get a callback with a detailed quote. No chasing, no missed calls — just a confirmed time that works for you.',
   },
 ]
 
@@ -76,11 +76,11 @@ const TRUST_ICON_MAP: Record<string, string> = {
           </div>
 
           <h1 class="font-heading text-[clamp(32px,5.5vw,52px)] leading-[1.08] text-slate-800 mb-5">
-            Trusted roofers in <span style="color: var(--color-brand);">{CLIENT.area}</span> for over {yearsInBusiness} years
+            Roofing quotes in <span style="color: var(--color-brand);">{CLIENT.area}</span> — scoped in 30 seconds, callback the same day
           </h1>
 
           <p class="text-lg text-slate-500 leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
-            Tell us what you need — our AI assistant will scope your job in 30 seconds. {CLIENT.ownerName} calls you back with a quote at a time that suits you. No obligation, no call-out fee.
+            Tell our AI assistant what you need and it scopes your job in 30 seconds. You get a same-day callback with a quote at a time that suits you. No obligation, no call-out fee.
           </p>
 
           <!-- CTA Buttons -->
@@ -140,7 +140,7 @@ const TRUST_ICON_MAP: Record<string, string> = {
           Roofing services across {CLIENT.area}
         </h2>
         <p class="text-slate-500 max-w-lg mx-auto">
-          From emergency leak repairs to full reroofs, we handle every aspect of domestic and commercial roofing in {CLIENT.region}.
+          From emergency leak repairs to full reroofs, get a free quote for any kind of roofing work across {CLIENT.region}.
         </p>
       </div>
 
@@ -251,7 +251,7 @@ const TRUST_ICON_MAP: Record<string, string> = {
           Why Choose Us
         </p>
         <h2 class="font-heading text-2xl md:text-[32px] text-slate-800">
-          Why {CLIENT.area} trusts {CLIENT.businessName}
+          Why choose {CLIENT.businessName}
         </h2>
       </div>
 
@@ -291,7 +291,7 @@ const TRUST_ICON_MAP: Record<string, string> = {
           Roofers across {CLIENT.area} and {CLIENT.region}
         </h2>
         <p class="text-slate-500 max-w-lg mx-auto">
-          We provide roofing services across {CLIENT.area} and the surrounding {CLIENT.region} area. Click an area to see local pricing and availability.
+          We provide roofing quotes across {CLIENT.area} and the surrounding {CLIENT.region} area. Click an area to see local pricing and availability.
         </p>
       </div>
 
@@ -354,7 +354,7 @@ const TRUST_ICON_MAP: Record<string, string> = {
           Emergency roof repairs
         </h3>
         <p>
-          When you have an active leak or storm damage, you need a roofer who can attend quickly. We offer same-day emergency attendance across {CLIENT.area} and {CLIENT.region}. The vans carry emergency tarpaulins and common repair materials so we can make your property watertight on the first visit. Once the immediate emergency is dealt with, we provide a detailed assessment and quote for any permanent remedial work. Emergency repairs are charged at our standard rates — no inflated call-out fees.
+          When you have an active leak or storm damage, you need a roofer who can attend quickly. Describe the problem in the chat at the top of this page and you'll get a same-day callback from a roofer covering {CLIENT.area} and {CLIENT.region}, so your property can be made watertight fast. You'll get a clear assessment and a quote for any permanent remedial work before anything goes ahead — and no inflated emergency call-out fees.
         </p>
 
         <h3 class="font-heading text-lg text-slate-700 !mt-8 !mb-3">
@@ -368,14 +368,14 @@ const TRUST_ICON_MAP: Record<string, string> = {
           How to choose a roofer in Exeter
         </h3>
         <p>
-          The basics matter most. Check that the roofer carries public liability insurance — £5 million cover is standard. Look for written quotes with itemised costs rather than vague verbal estimates. Ask about the guarantee period and what it covers. Be cautious of pressure-selling, large upfront deposits, or quotes that seem significantly lower than others without clear explanation. A roofer who has been working in Exeter for years should be able to talk specifically about the kinds of properties and problems they typically work with, not just generic claims about being "local".
+          The basics matter most. Check that the roofer carries public liability insurance — £5 million cover is standard. Look for written quotes with itemised costs rather than vague verbal estimates. Ask about the guarantee period and what it covers. Be cautious of pressure-selling, large upfront deposits, or quotes that seem significantly lower than others without clear explanation. A roofer who works in Exeter regularly should be able to talk specifically about the kinds of properties and problems they typically deal with, not just generic claims about being "local".
         </p>
 
         <h3 class="font-heading text-lg text-slate-700 !mt-8 !mb-3">
           Get a free quote
         </h3>
         <p>
-          Use the chat at the top of this page to tell us about your job — it takes less than 30 seconds and {CLIENT.ownerName} will call you back at a time that suits you with a detailed quote. Alternatively, call us directly on {CLIENT.phone}. No obligation, no pressure — just a straightforward quote for your roofing job in {CLIENT.area}.
+          Use the chat at the top of this page to tell us about your job — it takes less than 30 seconds, and you'll get a callback at a time that suits you with a detailed quote. Or call us directly on {CLIENT.phone}. No obligation, no pressure — just a straightforward quote for your roofing job in {CLIENT.area}.
         </p>
       </div>
     </article>
