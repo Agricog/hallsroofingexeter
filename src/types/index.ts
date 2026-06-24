@@ -12,11 +12,6 @@ export interface ClientConfig {
   domain: string
   discountActive: boolean
   discountPercent: number
-  googleReviewUrl: string
-  googleReviewCount: number
-  googleReviewRating: number
-  yearEstablished: number
-  insuranceAmount: string
   trustSignals: TrustSignal[]
   services: ServiceConfig[]
   areasServed: AreaConfig[]
