@@ -4,7 +4,6 @@ import { CLIENT } from '../data/clientConfig'
 
 const phoneClean = CLIENT.phone.replace(/\s/g, '')
 const currentYear = new Date().getFullYear()
-const yearsInBusiness = currentYear - CLIENT.yearEstablished
 const emailDomain = CLIENT.domain.replace(/^www\./, '')
 ---
 
@@ -17,14 +16,8 @@ const emailDomain = CLIENT.domain.replace(/^www\./, '')
           {CLIENT.businessName}
         </div>
         <p class="text-slate-400 text-sm leading-relaxed mb-5">
-          {CLIENT.tagline}. Established {CLIENT.yearEstablished} — {yearsInBusiness} years of trusted service.
+          {CLIENT.tagline}. Free quotes with a same-day callback across {CLIENT.area} and {CLIENT.region}.
         </p>
-        <div class="flex items-center gap-2 mb-2">
-          <div class="stars text-sm">★★★★★</div>
-          <span class="text-slate-400 text-xs">
-            {CLIENT.googleReviewRating}/5 from {CLIENT.googleReviewCount} reviews
-          </span>
-        </div>
       </div>
 
       <!-- Column 2: Services -->
