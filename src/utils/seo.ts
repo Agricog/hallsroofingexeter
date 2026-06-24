@@ -17,7 +17,6 @@ export function getLocalBusinessSchema() {
     description: CLIENT.tagline,
     url: BASE_URL,
     telephone: CLIENT.phone,
-    foundingDate: String(CLIENT.yearEstablished),
     areaServed: CLIENT.areasServed.map((area) => ({
       '@type': 'City',
       name: area.name,
@@ -34,13 +33,6 @@ export function getLocalBusinessSchema() {
       longitude: -3.5339,
     },
     priceRange: '\u00A3\u00A3',
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: String(CLIENT.googleReviewRating),
-      reviewCount: String(CLIENT.googleReviewCount),
-      bestRating: '5',
-      worstRating: '1',
-    },
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
