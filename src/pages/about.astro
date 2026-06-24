@@ -9,15 +9,14 @@ import CtaSection from '../components/CtaSection.astro'
 import AiChatIntake from '../components/react/AiChatIntake'
 
 const BASE_URL = `https://${CLIENT.domain}`
-const yearsInBusiness = new Date().getFullYear() - CLIENT.yearEstablished
 
 const page: SeoPageData = {
-  title: `About ${CLIENT.businessName} | Trusted Roofers in ${CLIENT.area}`,
-  description: `${CLIENT.businessName} has been providing roofing services across ${CLIENT.area} for ${yearsInBusiness} years. Fully insured, all work guaranteed. Meet the team.`,
+  title: `About ${CLIENT.businessName} | Roofing Quotes in ${CLIENT.area}`,
+  description: `${CLIENT.businessName} helps homeowners across ${CLIENT.area} and ${CLIENT.region} get a roofing quote fast. Describe your job to our AI assistant and get a same-day callback. Free, no obligation.`,
   canonical: `${BASE_URL}/about`,
   ogImage: `${BASE_URL}/og-image.jpg`,
   type: 'website',
-  keywords: [`roofer ${CLIENT.area.toLowerCase()}`, `roofing company ${CLIENT.area.toLowerCase()}`],
+  keywords: [`roofer ${CLIENT.area.toLowerCase()}`, `roofing quotes ${CLIENT.area.toLowerCase()}`],
 }
 
 const structuredData = buildStructuredData(page, [
@@ -28,10 +27,10 @@ const structuredData = buildStructuredData(page, [
 ])
 
 const highlights = [
-  { icon: 'lucide:award', value: `${yearsInBusiness}+ Years`, label: `Serving ${CLIENT.area}` },
-  { icon: 'lucide:shield-check', value: `£${CLIENT.insuranceAmount}`, label: 'Public Liability' },
-  { icon: 'lucide:check-circle', value: '20 Year', label: 'Reroof Guarantee' },
-  { icon: 'lucide:clock', value: 'Same Day', label: 'Emergency Response' },
+  { icon: 'lucide:clock', value: '30 Seconds', label: 'To scope your job' },
+  { icon: 'lucide:check-circle', value: 'Free', label: 'No-obligation quotes' },
+  { icon: 'lucide:map-pin', value: 'Local', label: `${CLIENT.area} & ${CLIENT.region}` },
+  { icon: 'lucide:phone', value: 'Same Day', label: 'Callback' },
 ]
 ---
 
@@ -45,7 +44,7 @@ const highlights = [
         About <span style="color: var(--color-brand);">{CLIENT.businessName}</span>
       </h1>
       <p class="text-lg text-slate-500 leading-relaxed max-w-2xl mx-auto">
-        Established in {CLIENT.yearEstablished}, {CLIENT.businessName} has been providing reliable, high-quality roofing services to homes and businesses across {CLIENT.area} and {CLIENT.region} for over {yearsInBusiness} years.
+        {CLIENT.businessName} is a roofing quote service for {CLIENT.area} and {CLIENT.region}. Describe your job to our AI assistant and you'll get a same-day callback with a quote from a local roofer — no forms, no waiting, no call-out fee.
       </p>
     </div>
   </section>
@@ -69,24 +68,24 @@ const highlights = [
   <section class="py-16 px-4 section-warm">
     <div class="mx-auto max-w-3xl">
       <div class="text-[15px] text-slate-600 leading-[1.85] space-y-5">
-        <h2 class="font-heading text-2xl text-slate-800 mb-4">Our Story</h2>
+        <h2 class="font-heading text-2xl text-slate-800 mb-4">How {CLIENT.businessName} Works</h2>
         <p>
-          {CLIENT.businessName} was founded by {CLIENT.ownerName} in {CLIENT.yearEstablished} with a simple idea: treat every roof as if it were your own. What started as a one-man operation has grown into a trusted local roofing company serving the whole of {CLIENT.area} and {CLIENT.region}.
+          Getting a roofing quote in {CLIENT.area} usually means chasing tradespeople, leaving voicemails, and waiting days for a callback that often never comes. We built {CLIENT.businessName} to fix that.
         </p>
         <p>
-          Over {yearsInBusiness} years, we have built our reputation on honest quotes, clean workmanship, and standing behind every job with a written guarantee. We do not subcontract — every job is completed by our own experienced team. We do not use high-pressure sales tactics. We give you a fair quote, explain your options clearly, and let you decide.
-        </p>
-
-        <h2 class="font-heading text-2xl text-slate-800 !mt-10 mb-4">Our Guarantee</h2>
-        <p>
-          Every job comes with a written guarantee. Repairs are guaranteed for 12 months. Full reroofs are guaranteed for 20 years on both materials and workmanship. Flat roof installations are guaranteed for the lifetime of the membrane system — typically 25 years or more.
-        </p>
-        <p>
-          We also carry £{CLIENT.insuranceAmount} public liability insurance on every job. We can provide a copy of our insurance certificate on request before any work begins. Your home is fully protected from the moment we arrive.
+          Tell our AI assistant about your roof — it asks a few simple questions, scopes the job in about 30 seconds, and gives you an instant indicative price. A clear summary of the job then goes to a local roofer, who calls you back the same day with a proper quote. You get the speed of an instant estimate and the certainty of a real human quote, and the roofer arrives already knowing what the job involves.
         </p>
 
-        <h2 class="font-heading text-2xl text-slate-800 !mt-10 mb-4">What We Do</h2>
-        <p>We provide a full range of roofing services including:</p>
+        <h2 class="font-heading text-2xl text-slate-800 !mt-10 mb-4">Why Use {CLIENT.businessName}</h2>
+        <p>
+          No forms and no photo uploads — just a 30-second chat. No call-out fee and no obligation: you get an indicative price and a callback, and you decide whether to go ahead. No high-pressure sales — the quote is yours to consider in your own time.
+        </p>
+        <p>
+          Because the assistant scopes your job before any roofer calls, you skip the vague back-and-forth that wastes everyone's time. The roofer who calls you knows the property type, the likely materials, and the scope of the work before they pick up the phone — which means a faster, more accurate quote for you.
+        </p>
+
+        <h2 class="font-heading text-2xl text-slate-800 !mt-10 mb-4">Roofing Jobs We Cover</h2>
+        <p>We can get you a quote for the full range of domestic and commercial roofing work across {CLIENT.area} and {CLIENT.region}:</p>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 my-4">
           {CLIENT.services.map((s) => (
             <a
@@ -101,7 +100,7 @@ const highlights = [
 
         <h2 class="font-heading text-2xl text-slate-800 !mt-10 mb-4">Get in Touch</h2>
         <p>
-          Whether you have an emergency leak, need a quote for a full reroof, or just want advice on the best course of action for your roof, we are here to help. Call us on {CLIENT.phone} or use the quote tool below to get a response within 24 hours.
+          Whether you have an emergency leak, want a quote for a full reroof, or just need advice on the best option for your roof, start with the chat below — it takes under a minute. Or call us directly on {CLIENT.phone}. Either way, you'll get a quick, no-obligation response.
         </p>
       </div>
     </div>
