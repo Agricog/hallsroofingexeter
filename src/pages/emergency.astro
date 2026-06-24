@@ -19,8 +19,8 @@ const BASE_URL = `https://${CLIENT.domain}`
 const phoneClean = CLIENT.phone.replace(/\s/g, '')
 
 const page: SeoPageData = {
-  title: `Emergency Roofer ${CLIENT.area} | Same-Day Repairs | ${CLIENT.businessName}`,
-  description: `Emergency roof repair in ${CLIENT.area}. Same-day attendance for leaks and storm damage. Call ${CLIENT.phone} now. No inflated call-out fees. ${CLIENT.businessName}.`,
+  title: `Emergency Roofer ${CLIENT.area} | Same-Day Callback | ${CLIENT.businessName}`,
+  description: `Emergency roof repair in ${CLIENT.area}? Get a same-day callback from a local roofer for leaks and storm damage. Free quote, no call-out fee. Call ${CLIENT.phone} or use the chat. ${CLIENT.businessName}.`,
   canonical: `${BASE_URL}/emergency`,
   ogImage: `${BASE_URL}/og-image.jpg`,
   type: 'website',
@@ -42,56 +42,56 @@ const STEPS = [
   },
   {
     step: '2',
-    title: 'Call us',
-    description: `Call ${CLIENT.phone} or use the chat above. Tell us what is happening and we will arrange same-day attendance.`,
+    title: 'Tell us what is happening',
+    description: `Call ${CLIENT.phone} or use the chat above. Describe the problem and we will arrange a same-day callback from a local roofer.`,
   },
   {
     step: '3',
-    title: 'We make it watertight',
+    title: 'Get help fast',
     description:
-      'We attend with tarpaulins and common repair materials. We make your property watertight on the first visit, then arrange a permanent repair.',
+      'A local roofer calls you back the same day. They can attend, make your property watertight, and then arrange a permanent repair.',
   },
 ]
 
 const TRUST = [
-  { icon: 'lucide:clock', text: 'Same-day attendance' },
-  { icon: 'lucide:shield-check', text: 'No inflated call-out fees' },
+  { icon: 'lucide:clock', text: 'Same-day callback' },
+  { icon: 'lucide:shield-check', text: 'No call-out fee for quotes' },
 ]
 
 const EMERGENCY_TYPES = [
   {
     title: 'Active roof leaks and water ingress',
-    description: `Water coming through the ceiling during heavy rain is the most common emergency call we get. Causes range from cracked tiles and failed pointing to blocked gutters overflowing into the roof structure. We trace the leak to source, stop the water entry, and protect interior plasterwork while a permanent repair is scheduled.`,
+    description: `Water coming through the ceiling during heavy rain is the most common roof emergency. Causes range from cracked tiles and failed pointing to blocked gutters overflowing into the roof structure. A roofer traces the leak to source, stops the water entry, and protects interior plasterwork while a permanent repair is scheduled.`,
     link: '/services/roof-repair',
     linkLabel: 'Roof repair',
   },
   {
     title: 'Storm damage and high winds',
-    description: `Southwesterly gales coming up the Exe Valley regularly lift ridge tiles, displace slates, and damage flashings. Properties on exposed higher ground around St Leonard's, Pennsylvania, and Mount Pleasant are most at risk. We attend with tarpaulins to cover affected areas, secure loose materials, and document damage for insurance claims if needed.`,
+    description: `Southwesterly gales coming up the Exe Valley regularly lift ridge tiles, displace slates, and damage flashings. Properties on exposed higher ground around St Leonard's, Pennsylvania, and Mount Pleasant are most at risk. A roofer can tarp the affected areas, secure loose materials, and document damage for insurance claims if needed.`,
     link: '/services/roof-repair',
     linkLabel: 'Roof repair',
   },
   {
     title: 'Missing or slipped tiles',
-    description: `Single slipped or missing tiles after high winds expose the felt or batten underneath, which will fail within days if rain continues. Common on Victorian terraces across Heavitree, St James, and Whipton where original slate is increasingly brittle. We replace individual tiles or batch-match where original materials are still available.`,
+    description: `Single slipped or missing tiles after high winds expose the felt or batten underneath, which will fail within days if rain continues. Common on Victorian terraces across Heavitree, St James, and Whipton where original slate is increasingly brittle. Individual tiles can be replaced or batch-matched where original materials are still available.`,
     link: '/services/roof-repair',
     linkLabel: 'Roof repair',
   },
   {
     title: 'Chimney damage and lead flashing failure',
-    description: `Cracked chimney pots, loose stack masonry, and failed lead flashings are routine emergencies on Exeter's older housing stock. A failed lead apron will channel water directly into the loft. We secure loose pots, install temporary flashings, and quote separately for permanent rebuild or re-lead work.`,
+    description: `Cracked chimney pots, loose stack masonry, and failed lead flashings are routine emergencies on Exeter's older housing stock. A failed lead apron channels water directly into the loft. A roofer can secure loose pots, fit temporary flashings, and quote separately for permanent rebuild or re-lead work.`,
     link: '/services/chimney-work',
     linkLabel: 'Chimney work',
   },
   {
     title: 'Flat roof failure',
-    description: `Felt and EPDM flat roofs on Victorian rear extensions, dormers, and garage roofs typically fail at the seams or upstands. Sudden water ingress through a flat roof usually means a split has opened up. We patch the failure point with self-adhesive flashings or compatible repair materials to restore watertightness.`,
+    description: `Felt and EPDM flat roofs on Victorian rear extensions, dormers, and garage roofs typically fail at the seams or upstands. Sudden water ingress through a flat roof usually means a split has opened up. The failure point can be patched with self-adhesive flashings or compatible repair materials to restore watertightness.`,
     link: '/services/flat-roof',
     linkLabel: 'Flat roofing',
   },
   {
     title: 'Fallen branches and impact damage',
-    description: `Exeter's mature tree cover means storm-fallen branches regularly puncture roofs in conservation areas around Pennsylvania, Heavitree, and the Cathedral quarter. We remove debris safely, assess the structural extent, and tarp the affected area until a permanent repair can be scoped and completed.`,
+    description: `Exeter's mature tree cover means storm-fallen branches regularly puncture roofs in conservation areas around Pennsylvania, Heavitree, and the Cathedral quarter. Debris is removed safely, the structural extent assessed, and the affected area tarped until a permanent repair can be scoped and completed.`,
     link: '/services/roof-repair',
     linkLabel: 'Roof repair',
   },
@@ -99,28 +99,28 @@ const EMERGENCY_TYPES = [
 
 const FAQS = [
   {
-    question: 'How quickly can you attend a roof emergency?',
-    answer: `For genuine emergencies — active leaks, storm damage, immediate risk — we aim to attend the same day across central Exeter (EX1, EX2, EX4) and typically reach surrounding areas like Topsham, Exmouth, and Crediton within a few hours. Response time depends on current workload and weather. Call ${CLIENT.phone} to confirm a realistic ETA for your address.`,
+    question: 'How quickly can a roofer attend a roof emergency?',
+    answer: `For genuine emergencies — active leaks, storm damage, immediate risk — describe it in the chat or call ${CLIENT.phone} for a same-day callback. A local roofer can usually attend central Exeter (EX1, EX2, EX4) the same day and reach surrounding areas like Topsham, Exmouth, and Crediton within a few hours, depending on workload and weather.`,
   },
   {
-    question: 'Do you charge extra for emergency call-outs?',
-    answer: `No. Our emergency rates are the same as our standard rates. An emergency tarpaulin to make your roof watertight typically costs £150–£300 depending on access and the area covered. The permanent repair is quoted separately at our normal pricing. We do not inflate prices because a customer is under pressure.`,
+    question: 'Is there a call-out fee?',
+    answer: `Getting a quote through us is free and there is no call-out fee. As a guide, an emergency tarpaulin to make a roof watertight typically costs £150–£300 depending on access and the area covered, with any permanent repair quoted separately. Always confirm the price with the roofer before work begins.`,
   },
   {
     question: 'What about out-of-hours or overnight emergencies?',
-    answer: `We attend during daylight hours wherever possible. Overnight work is rarely safe on a roof, so for emergencies after dark we focus on telephone advice — isolating electrics, containing leaks internally — and arrange to attend at first light. If there is immediate structural danger to people, we will advise on contacting the fire service for emergency make-safe.`,
+    answer: `Roof work after dark is rarely safe, so overnight emergencies are usually handled with phone advice first — isolating electrics, containing leaks internally — and a roofer attending at first light. If there is immediate structural danger to people, call the fire service for emergency make-safe.`,
   },
   {
-    question: 'Will you do a temporary fix or a permanent repair on the day?',
-    answer: `We make the roof watertight on the first visit using tarpaulins or temporary flashings — that is the priority. A permanent repair usually requires properly matched materials, dry conditions, and a longer working window, so we quote that separately and schedule it for the next available slot. The temporary work prevents further damage while the permanent repair is arranged.`,
+    question: 'Temporary fix or permanent repair on the day?',
+    answer: `The priority is making the roof watertight on the first visit, using tarpaulins or temporary flashings. A permanent repair usually needs properly matched materials and dry conditions, so it is normally quoted separately and scheduled for the next available slot. The temporary work prevents further damage in the meantime.`,
   },
   {
-    question: 'Do you handle storm damage and insurance claims?',
-    answer: `Yes. After major storms we provide photographs and a written report documenting the damage and the repair work carried out, which most insurers require for a claim. We can liaise with loss adjusters where needed. Insurance work is quoted at our standard rates regardless of the claim value.`,
+    question: 'What about storm damage and insurance claims?',
+    answer: `After major storms, a roofer can provide photographs and a written report documenting the damage and the repair carried out — which most insurers require for a claim — and liaise with loss adjusters where needed.`,
   },
   {
-    question: 'Are you insured for emergency roof work?',
-    answer: `Yes. We carry £${CLIENT.insuranceAmount} public liability insurance covering all work, including emergency attendance. Documentation can be provided on request before work begins.`,
+    question: 'Is the roofer insured?',
+    answer: `The roofer who attends carries their own public liability insurance. We recommend asking to see a copy and confirming the cover before any work begins.`,
   },
 ]
 
@@ -171,7 +171,7 @@ const structuredData = {
             Emergency roof repair in <span class="text-amber-300">{CLIENT.area}</span>
           </h1>
           <p class="text-lg text-white/80 leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
-            Leaking roof? Storm damage? {CLIENT.businessName} provides same-day emergency attendance across {CLIENT.area} and {CLIENT.region}. We carry tarpaulins and repair materials on the van — your roof will be watertight today.
+            Leaking roof? Storm damage? Describe it in the chat or call now, and {CLIENT.businessName} gets you a same-day callback from a local roofer across {CLIENT.area} and {CLIENT.region} who can make your property watertight fast.
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
             <a
@@ -226,10 +226,10 @@ const structuredData = {
   <section class="py-16 px-4 section-warm">
     <div class="mx-auto max-w-3xl text-center">
       <h2 class="font-heading text-2xl text-slate-800 mb-4">
-        No inflated emergency prices
+        Free quote, no call-out fee
       </h2>
       <p class="text-slate-500 leading-relaxed mb-8 max-w-lg mx-auto">
-        Unlike some roofers, we do not double our prices for emergencies. Our emergency call-out rates are the same as our standard rates. An emergency tarpaulin to make your roof watertight typically costs £150–£300, and a permanent repair is quoted separately at our normal prices.
+        Getting a quote through us is free and there is no call-out fee. As a guide, an emergency tarpaulin to make your roof watertight typically costs £150–£300, with any permanent repair quoted separately. You will know the likely cost before any work is agreed.
       </p>
       <a
         href={`tel:${phoneClean}`}
@@ -248,10 +248,10 @@ const structuredData = {
     <div class="mx-auto max-w-6xl">
       <div class="text-center mb-10">
         <h2 class="font-heading text-2xl md:text-[32px] text-slate-800 mb-3">
-          Common roof emergencies we handle
+          Common roof emergencies
         </h2>
         <p class="text-slate-500 max-w-2xl mx-auto">
-          The most frequent emergency call-outs across {CLIENT.area} and the surrounding area. Every one of these we make safe and watertight on the first visit.
+          The most frequent roof emergencies across {CLIENT.area} and the surrounding area. Describe yours in the chat and a local roofer can make it safe and watertight on the first visit.
         </p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -293,7 +293,7 @@ const structuredData = {
 
       <div>
         <h3 class="font-heading text-lg text-slate-800 mb-3">
-          What we see on different Exeter property types
+          Emergencies by Exeter property type
         </h3>
         <p class="text-slate-600 leading-relaxed">
           Different parts of {CLIENT.area} present different emergency patterns. Victorian and Edwardian terraces in St James, Heavitree, St Leonard's, and Mount Pleasant most often see slipped Welsh slates, failed pointing on chimney stacks, and lead flashing failure where rear extensions meet the main roof. The 1930s housing stock in Wonford, Whipton, and Pinhoe typically presents clay or concrete tile slippage and ridge tile displacement after high winds. Newer estates in Cranbrook, Marsh Barton, and outer Pinhoe see fewer storm-related emergencies but occasional construction-period defects — typically poorly bedded ridge tiles or flashings that loosen in the first few years. Period properties in the Cathedral and Quay conservation areas have the most complex emergencies because matching original materials is essential.
@@ -302,10 +302,10 @@ const structuredData = {
 
       <div>
         <h3 class="font-heading text-lg text-slate-800 mb-3">
-          Our coverage and response approach
+          Coverage and response across Exeter
         </h3>
         <p class="text-slate-600 leading-relaxed">
-          We operate van-based across {CLIENT.area} and the surrounding area. For genuine emergencies — active leaks, storm damage, structural risk — we prioritise same-day attendance to the central postcodes (EX1, EX2, EX4) and typically reach properties in Topsham, Exmouth, Crediton, and Cranbrook within a few hours. Our vans carry tarpaulins, common slate and tile types, self-adhesive flashings, and the tools needed to make a roof watertight in one visit. Where a permanent repair is not possible on the day — for instance, where bespoke materials need to be sourced — we make the affected area secure and schedule the return visit promptly.
+          For genuine emergencies — active leaks, storm damage, structural risk — describe the problem in the chat or call, and you will get a same-day callback from a local roofer. Roofers prioritise same-day attendance to the central postcodes (EX1, EX2, EX4) and can typically reach Topsham, Exmouth, Crediton, and Cranbrook within a few hours. They carry tarpaulins, common slate and tile types, and self-adhesive flashings to make a roof watertight in one visit. Where a permanent repair is not possible the same day — for instance where bespoke materials need sourcing — the affected area is made secure and the return visit scheduled promptly.
         </p>
       </div>
     </div>
@@ -318,6 +318,6 @@ const structuredData = {
 
   <CtaSection
     heading={`Roof emergency in ${CLIENT.area}?`}
-    subheading={`Call us now on ${CLIENT.phone}. Same-day attendance across ${CLIENT.area} and ${CLIENT.region}.`}
+    subheading={`Call us now on ${CLIENT.phone}, or describe it in the chat for a same-day callback from a local roofer across ${CLIENT.area} and ${CLIENT.region}.`}
   />
 </BaseLayout>
