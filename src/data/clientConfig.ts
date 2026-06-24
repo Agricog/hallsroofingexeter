@@ -16,11 +16,6 @@ export const CLIENT: ClientConfig = {
   domain: 'hallsroofingexeter.co.uk',
   discountActive: true,
   discountPercent: 10,
-  googleReviewUrl: 'https://g.page/r/halls-roofing-exeter/review',
-  googleReviewCount: 52,
-  googleReviewRating: 4.8,
-  yearEstablished: 2009,
-  insuranceAmount: '5 million',
 
   trustSignals: [
     {
