@@ -28,16 +28,16 @@ const relatedServices = CLIENT.services.filter((s) => s.slug !== service.slug).s
 const serviceFaqs = service.faqs ?? [
   {
     question: `How much does ${service.name.toLowerCase()} cost in ${CLIENT.area}?`,
-    answer: `${service.name} in ${CLIENT.area} typically costs between £${service.priceFrom} and £${service.priceTo}. The final price depends on the size of the job, materials required, and access to the roof. We provide free quotes so you know the exact cost before we start.`,
+    answer: `${service.name} in ${CLIENT.area} typically costs between £${service.priceFrom} and £${service.priceTo}. The final price depends on the size of the job, materials required, and access to the roof. We provide free quotes so you know the cost before any work is agreed.`,
   },
   {
-    question: `How quickly can you do ${service.name.toLowerCase()}?`,
+    question: `How quickly can you arrange ${service.name.toLowerCase()}?`,
     answer:
-      'For emergency work we can often attend the same day. For planned work, we typically quote within 48 hours and schedule within a week, depending on our current workload and the weather.',
+      'Describe your job in the chat and you will get a same-day callback from a local roofer. For emergencies they can often attend the same day; for planned work you will usually have a quote within a couple of days.',
   },
   {
-    question: `Do you guarantee your ${service.name.toLowerCase()} work?`,
-    answer: `Yes. All ${service.name.toLowerCase()} work comes with a written guarantee covering both materials and workmanship. We also carry £${CLIENT.insuranceAmount} public liability insurance.`,
+    question: `Is ${service.name.toLowerCase()} work guaranteed?`,
+    answer: `Any guarantee is provided by the roofer who carries out the work. We recommend confirming the guarantee terms and the roofer's public liability insurance in writing before you agree to the job.`,
   },
 ]
 ---
