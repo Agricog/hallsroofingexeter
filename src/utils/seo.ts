@@ -157,8 +157,8 @@ export function buildStructuredData(
 // ── Homepage structured data ──
 export function getHomepageStructuredData() {
   const page: SeoPageData = {
-    title: `${CLIENT.trade} ${CLIENT.area} | ${CLIENT.businessName} | Trusted Local Roofers`,
-    description: `Get a ${CLIENT.trade.toLowerCase()} quote in ${CLIENT.area} in 24 hours. ${CLIENT.businessName} \u2014 ${CLIENT.tagline}. Free quotes, all work guaranteed.`,
+    title: `${CLIENT.trade} Quotes ${CLIENT.area} | ${CLIENT.businessName} | Same-Day Callback`,
+    description: `Get a ${CLIENT.trade.toLowerCase()} quote in ${CLIENT.area} \u2014 describe your job to our AI assistant and get a same-day callback from a local roofer. Free, no obligation. ${CLIENT.businessName}.`,
     canonical: BASE_URL,
     ogImage: `${BASE_URL}/og-image.jpg`,
     type: 'website',
@@ -175,7 +175,7 @@ export function getHomepageStructuredData() {
 export function getServicePageStructuredData(service: ServiceConfig) {
   const page: SeoPageData = {
     title: `${service.name} ${CLIENT.area} | ${CLIENT.businessName} | From \u00A3${service.priceFrom}`,
-    description: `${service.shortDescription} ${CLIENT.businessName} in ${CLIENT.area}. Free quotes, all work guaranteed. Call ${CLIENT.phone}.`,
+    description: `${service.shortDescription} Get a free quote in ${CLIENT.area} with a same-day callback from a local roofer. Call ${CLIENT.phone}.`,
     canonical: `${BASE_URL}/services/${service.slug}`,
     ogImage: `${BASE_URL}/og-image.jpg`,
     type: 'website',
@@ -197,8 +197,8 @@ export function getServicePageStructuredData(service: ServiceConfig) {
 // ── Area page structured data ──
 export function getAreaPageStructuredData(areaName: string, areaSlug: string) {
   const page: SeoPageData = {
-    title: `Roofer ${areaName} | ${CLIENT.businessName} | Trusted Local Roofers`,
-    description: `Looking for a roofer in ${areaName}? ${CLIENT.businessName} provides roof repairs, reroofs, and emergency call-outs across ${areaName}. Free quotes. Call ${CLIENT.phone}.`,
+    title: `Roofer ${areaName} | ${CLIENT.businessName} | Free Roofing Quotes`,
+    description: `Looking for a roofer in ${areaName}? Get a free quote for roof repairs, reroofs, and emergency call-outs across ${areaName} \u2014 describe your job and get a same-day callback. Call ${CLIENT.phone}.`,
     canonical: `${BASE_URL}/areas/${areaSlug}`,
     ogImage: `${BASE_URL}/og-image.jpg`,
     type: 'website',
